@@ -1,0 +1,74 @@
+﻿/*===============================
+    Style For Pilar
+  ===============================
+*/
+.c-pilar {
+    &--title-pillar {
+        font-size: 3.5vw;
+        font-weight: 600;
+        color: $color-base;
+        padding: 0 1.5vw;
+    }
+
+    &--subtitle-pillar {
+        font-size: 1.7vw;
+        font-weight: 500;
+        color: $color-base;
+        font-style: italic;
+    }
+
+    &__float-btn-cancel {
+        margin: 0 auto;
+        top: 1.5vw;
+    }
+
+    &__img-shadow {
+        -webkit-box-shadow: 0px 0px 7px 0 rgba(77,255,255,1);
+        -moz-box-shadow: 0px 0px 7px 0 rgba(77,255,255,1);
+        box-shadow: 0px 0px 7px 0 rgba(77,255,255,1);
+    }
+
+    &__line {
+        border-top: 0.2vw solid #4DFFFF;
+        margin: 0.7vw 1vw;
+    }
+    /*Modal Dialog*/
+    &__modal-dialog {
+        width: auto;
+        top: 17%;
+        margin: 0 20%;
+    }
+
+    &__box-center-modal {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 0 2%;
+        margin: 0;
+        position: fixed;
+        width: 100%;
+    }
+
+    &__fade {
+        &--in {
+            background: rgba(0,0,0,0.7);
+        }
+    }
+
+    &__modal-open {
+        padding-right: 0px !important;
+    }
+
+    &__modal-open {
+        &--modal {
+            overflow: hidden !important;
+        }
+    }
+
+    &__content-list {
+        overflow-y: auto;
+        overflow-x: hidden;
+        max-height: 30vw;
+        padding: 1.5vw;
+    }
+}

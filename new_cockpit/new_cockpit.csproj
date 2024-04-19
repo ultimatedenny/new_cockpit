@@ -1,0 +1,870 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D4D02E66-FC9A-458B-A326-D1011D0544C9}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>new_cockpit</RootNamespace>
+    <AssemblyName>new_cockpit</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ApplicationBlocks.Data, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationBlocks.Data.2.0.0\lib\net45\Microsoft.ApplicationBlocks.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Diagnostics.DiagnosticSource">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.5.1\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.5.1\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.5.1\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.5.1\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.5.1\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.5.1\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Action\LoginAction.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Class\SysUtl.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="Controllers\SplashController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\IData.cs" />
+    <Compile Include="Models\Dashboard.cs" />
+    <Compile Include="Models\LoginViewModel.cs" />
+    <Compile Include="Models\MMS.cs" />
+    <Compile Include="Models\OMS.cs" />
+    <Compile Include="Models\Program.cs" />
+    <Compile Include="Models\QMS.cs" />
+    <Compile Include="Models\SCMS.cs" />
+    <Compile Include="Models\Setting.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SampleData\SampleData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\All Menu-Close\Asset 2%400.5x.png" />
+    <Content Include="Assets\All Menu-Close\Asset 2%400.75x.png" />
+    <Content Include="Assets\All Menu-Close\Asset 2%401.5x.png" />
+    <Content Include="Assets\All Menu-Close\Asset 2%402x.png" />
+    <Content Include="Assets\All Menu-Close\Asset 2%403x.png" />
+    <Content Include="Assets\All Menu-Close\Asset 2%404x.png" />
+    <Content Include="Assets\All Menu-Close\Asset 2.png" />
+    <Content Include="Assets\All Menu-Shape\MMS.png" />
+    <Content Include="Assets\All Menu-Shape\OMS.png" />
+    <Content Include="Assets\All Menu-Shape\QMS.png" />
+    <Content Include="Assets\All Menu-Shape\SCMS.png" />
+    <Content Include="Assets\Dash.gif" />
+    <Content Include="Assets\Home-Background\Asset 5%400.5x.png" />
+    <Content Include="Assets\Home-Background\Asset 5%400.75x.png" />
+    <Content Include="Assets\Home-Background\Asset 5%401.5x.png" />
+    <Content Include="Assets\Home-Background\Asset 5%402x.png" />
+    <Content Include="Assets\Home-Background\Asset 5%403x.png" />
+    <Content Include="Assets\Home-Background\Asset 5%404x.png" />
+    <Content Include="Assets\Home-Background\Asset 5.png" />
+    <Content Include="Assets\Home-Background\BG_PRD.png" />
+    <Content Include="Assets\Home-Background\BG_QA.png" />
+    <Content Include="Assets\Home-Helpdesk Icon\Asset 4%400.5x.png" />
+    <Content Include="Assets\Home-Helpdesk Icon\Asset 4%400.75x.png" />
+    <Content Include="Assets\Home-Helpdesk Icon\Asset 4%401.5x.png" />
+    <Content Include="Assets\Home-Helpdesk Icon\Asset 4%402x.png" />
+    <Content Include="Assets\Home-Helpdesk Icon\Asset 4%403x.png" />
+    <Content Include="Assets\Home-Helpdesk Icon\Asset 4%404x.png" />
+    <Content Include="Assets\Home-Helpdesk Icon\Asset 4.png" />
+    <Content Include="Assets\Home-Icon-Close\Asset 9%400.5x.png" />
+    <Content Include="Assets\Home-Icon-Close\Asset 9%400.75x.png" />
+    <Content Include="Assets\Home-Icon-Close\Asset 9%401.5x.png" />
+    <Content Include="Assets\Home-Icon-Close\Asset 9%402x.png" />
+    <Content Include="Assets\Home-Icon-Close\Asset 9%403x.png" />
+    <Content Include="Assets\Home-Icon-Close\Asset 9%404x.png" />
+    <Content Include="Assets\Home-Icon-Close\Asset 9.png" />
+    <Content Include="Assets\Home-Icon-Left Arrow\Asset 18%400.5x.png" />
+    <Content Include="Assets\Home-Icon-Left Arrow\Asset 18%400.75x.png" />
+    <Content Include="Assets\Home-Icon-Left Arrow\Asset 18%401.5x.png" />
+    <Content Include="Assets\Home-Icon-Left Arrow\Asset 18%402x.png" />
+    <Content Include="Assets\Home-Icon-Left Arrow\Asset 18%403x.png" />
+    <Content Include="Assets\Home-Icon-Left Arrow\Asset 18%404x.png" />
+    <Content Include="Assets\Home-Icon-Left Arrow\Asset 18.png" />
+    <Content Include="Assets\Home-Icon-Right Arrow\Asset 19%400.5x.png" />
+    <Content Include="Assets\Home-Icon-Right Arrow\Asset 19%400.75x.png" />
+    <Content Include="Assets\Home-Icon-Right Arrow\Asset 19%401.5x.png" />
+    <Content Include="Assets\Home-Icon-Right Arrow\Asset 19%402x.png" />
+    <Content Include="Assets\Home-Icon-Right Arrow\Asset 19%403x.png" />
+    <Content Include="Assets\Home-Icon-Right Arrow\Asset 19%404x.png" />
+    <Content Include="Assets\Home-Icon-Right Arrow\Asset 19.png" />
+    <Content Include="Assets\Home-Side Menu Icon\Asset 6%400.5x.png" />
+    <Content Include="Assets\Home-Side Menu Icon\Asset 6%400.75x.png" />
+    <Content Include="Assets\Home-Side Menu Icon\Asset 6%401.5x.png" />
+    <Content Include="Assets\Home-Side Menu Icon\Asset 6%402x.png" />
+    <Content Include="Assets\Home-Side Menu Icon\Asset 6%403x.png" />
+    <Content Include="Assets\Home-Side Menu Icon\Asset 6%404x.png" />
+    <Content Include="Assets\Home-Side Menu Icon\Asset 6.png" />
+    <Content Include="Assets\Home-Side Menu-Settings Icon\Asset 11%400.5x.png" />
+    <Content Include="Assets\Home-Side Menu-Settings Icon\Asset 11%400.75x.png" />
+    <Content Include="Assets\Home-Side Menu-Settings Icon\Asset 11%401.5x.png" />
+    <Content Include="Assets\Home-Side Menu-Settings Icon\Asset 11%402x.png" />
+    <Content Include="Assets\Home-Side Menu-Settings Icon\Asset 11%403x.png" />
+    <Content Include="Assets\Home-Side Menu-Settings Icon\Asset 11%404x.png" />
+    <Content Include="Assets\Home-Side Menu-Settings Icon\Asset 11.png" />
+    <Content Include="Assets\Home-Side Menu-Shape\Asset 12%400.5x.png" />
+    <Content Include="Assets\Home-Side Menu-Shape\Asset 12%400.75x.png" />
+    <Content Include="Assets\Home-Side Menu-Shape\Asset 12%401.5x.png" />
+    <Content Include="Assets\Home-Side Menu-Shape\Asset 12%402x.png" />
+    <Content Include="Assets\Home-Side Menu-Shape\Asset 12%403x.png" />
+    <Content Include="Assets\Home-Side Menu-Shape\Asset 12%404x.png" />
+    <Content Include="Assets\Home-Side Menu-Shape\Asset 12.png" />
+    <Content Include="Assets\Home-Side Menu-Sign In Icon\Asset 8%400.5x.png" />
+    <Content Include="Assets\Home-Side Menu-Sign In Icon\Asset 8%400.75x.png" />
+    <Content Include="Assets\Home-Side Menu-Sign In Icon\Asset 8%401.5x.png" />
+    <Content Include="Assets\Home-Side Menu-Sign In Icon\Asset 8%402x.png" />
+    <Content Include="Assets\Home-Side Menu-Sign In Icon\Asset 8%403x.png" />
+    <Content Include="Assets\Home-Side Menu-Sign In Icon\Asset 8%404x.png" />
+    <Content Include="Assets\Home-Side Menu-Sign In Icon\Asset 8.png" />
+    <Content Include="Assets\Home-Side Menu-Sign In Shape\Asset 10%400.5x.png" />
+    <Content Include="Assets\Home-Side Menu-Sign In Shape\Asset 10%400.75x.png" />
+    <Content Include="Assets\Home-Side Menu-Sign In Shape\Asset 10%401.5x.png" />
+    <Content Include="Assets\Home-Side Menu-Sign In Shape\Asset 10%402x.png" />
+    <Content Include="Assets\Home-Side Menu-Sign In Shape\Asset 10%403x.png" />
+    <Content Include="Assets\Home-Side Menu-Sign In Shape\Asset 10%404x.png" />
+    <Content Include="Assets\Home-Side Menu-Sign In Shape\Asset 10.png" />
+    <Content Include="Assets\Logo\Asset 31%400.5x.png" />
+    <Content Include="Assets\Logo\Asset 31%400.75x.png" />
+    <Content Include="Assets\Logo\Asset 31%401.5x.png" />
+    <Content Include="Assets\Logo\Asset 31%402x.png" />
+    <Content Include="Assets\Logo\Asset 31%403x.png" />
+    <Content Include="Assets\Logo\Asset 31%404x.png" />
+    <Content Include="Assets\Logo\Asset 31.png" />
+    <Content Include="Assets\Menu-MMS\Asset 16%400.5x.png" />
+    <Content Include="Assets\Menu-MMS\Asset 16%400.75x.png" />
+    <Content Include="Assets\Menu-MMS\Asset 16%401.5x.png" />
+    <Content Include="Assets\Menu-MMS\Asset 16%402x.png" />
+    <Content Include="Assets\Menu-MMS\Asset 16%403x.png" />
+    <Content Include="Assets\Menu-MMS\Asset 16%404x.png" />
+    <Content Include="Assets\Menu-MMS\Asset 16.png" />
+    <Content Include="Assets\Menu-MMS\Menu-MMS.gif" />
+    <Content Include="Assets\Menu-OMS\Asset 15%400.5x.png" />
+    <Content Include="Assets\Menu-OMS\Asset 15%400.75x.png" />
+    <Content Include="Assets\Menu-OMS\Asset 15%401.5x.png" />
+    <Content Include="Assets\Menu-OMS\Asset 15%402x.png" />
+    <Content Include="Assets\Menu-OMS\Asset 15%403x.png" />
+    <Content Include="Assets\Menu-OMS\Asset 15%404x.png" />
+    <Content Include="Assets\Menu-OMS\Asset 15.png" />
+    <Content Include="Assets\Menu-OMS\Menu-OMS.gif" />
+    <Content Include="Assets\Menu-QMS\Asset 14%400.5x.png" />
+    <Content Include="Assets\Menu-QMS\Asset 14%400.75x.png" />
+    <Content Include="Assets\Menu-QMS\Asset 14%401.5x.png" />
+    <Content Include="Assets\Menu-QMS\Asset 14%402x.png" />
+    <Content Include="Assets\Menu-QMS\Asset 14%403x.png" />
+    <Content Include="Assets\Menu-QMS\Asset 14%404x.png" />
+    <Content Include="Assets\Menu-QMS\Asset 14.png" />
+    <Content Include="Assets\Menu-QMS\Menu-QMS.gif" />
+    <Content Include="Assets\Menu-SCMS\Asset 17%400.5x.png" />
+    <Content Include="Assets\Menu-SCMS\Asset 17%400.75x.png" />
+    <Content Include="Assets\Menu-SCMS\Asset 17%401.5x.png" />
+    <Content Include="Assets\Menu-SCMS\Asset 17%402x.png" />
+    <Content Include="Assets\Menu-SCMS\Asset 17%403x.png" />
+    <Content Include="Assets\Menu-SCMS\Asset 17%404x.png" />
+    <Content Include="Assets\Menu-SCMS\Asset 17.png" />
+    <Content Include="Assets\Menu-SCMS\Menu-SCMS.gif" />
+    <Content Include="Assets\Moving-BG-02.gif" />
+    <Content Include="Assets\Sign In-Button\Asset 7%400.5x.png" />
+    <Content Include="Assets\Sign In-Button\Asset 7%400.75x.png" />
+    <Content Include="Assets\Sign In-Button\Asset 7%401.5x.png" />
+    <Content Include="Assets\Sign In-Button\Asset 7%402x.png" />
+    <Content Include="Assets\Sign In-Button\Asset 7%403x.png" />
+    <Content Include="Assets\Sign In-Button\Asset 7%404x.png" />
+    <Content Include="Assets\Sign In-Button\Asset 7.png" />
+    <Content Include="Assets\Sign In-Close Icon\Asset 1%400.5x.png" />
+    <Content Include="Assets\Sign In-Close Icon\Asset 1%400.75x.png" />
+    <Content Include="Assets\Sign In-Close Icon\Asset 1%401.5x.png" />
+    <Content Include="Assets\Sign In-Close Icon\Asset 1%402x.png" />
+    <Content Include="Assets\Sign In-Close Icon\Asset 1%403x.png" />
+    <Content Include="Assets\Sign In-Close Icon\Asset 1%404x.png" />
+    <Content Include="Assets\Sign In-Close Icon\Asset 1.png" />
+    <Content Include="Assets\Sign In-Hello\Asset 3%400.5x.png" />
+    <Content Include="Assets\Sign In-Hello\Asset 3%400.75x.png" />
+    <Content Include="Assets\Sign In-Hello\Asset 3%401.5x.png" />
+    <Content Include="Assets\Sign In-Hello\Asset 3%402x.png" />
+    <Content Include="Assets\Sign In-Hello\Asset 3%403x.png" />
+    <Content Include="Assets\Sign In-Hello\Asset 3%404x.png" />
+    <Content Include="Assets\Sign In-Hello\Asset 3.png" />
+    <Content Include="Assets\Sign In-Icon\Asset 4%400.5x.png" />
+    <Content Include="Assets\Sign In-Icon\Asset 4%400.75x.png" />
+    <Content Include="Assets\Sign In-Icon\Asset 4%401.5x.png" />
+    <Content Include="Assets\Sign In-Icon\Asset 4%402x.png" />
+    <Content Include="Assets\Sign In-Icon\Asset 4%403x.png" />
+    <Content Include="Assets\Sign In-Icon\Asset 4%404x.png" />
+    <Content Include="Assets\Sign In-Icon\Asset 4.png" />
+    <Content Include="Assets\Sign In-Password\Asset 6%400.5x.png" />
+    <Content Include="Assets\Sign In-Password\Asset 6%400.75x.png" />
+    <Content Include="Assets\Sign In-Password\Asset 6%401.5x.png" />
+    <Content Include="Assets\Sign In-Password\Asset 6%402x.png" />
+    <Content Include="Assets\Sign In-Password\Asset 6%403x.png" />
+    <Content Include="Assets\Sign In-Password\Asset 6%404x.png" />
+    <Content Include="Assets\Sign In-Password\Asset 6.png" />
+    <Content Include="Assets\Sign In-Shape\Asset 2%400.5x.png" />
+    <Content Include="Assets\Sign In-Shape\Asset 2%400.75x.png" />
+    <Content Include="Assets\Sign In-Shape\Asset 2%401.5x.png" />
+    <Content Include="Assets\Sign In-Shape\Asset 2%402x.png" />
+    <Content Include="Assets\Sign In-Shape\Asset 2%403x.png" />
+    <Content Include="Assets\Sign In-Shape\Asset 2%404x.png" />
+    <Content Include="Assets\Sign In-Shape\Asset 2.png" />
+    <Content Include="Assets\Sign In-Username\Asset 5%400.5x.png" />
+    <Content Include="Assets\Sign In-Username\Asset 5%400.75x.png" />
+    <Content Include="Assets\Sign In-Username\Asset 5%401.5x.png" />
+    <Content Include="Assets\Sign In-Username\Asset 5%402x.png" />
+    <Content Include="Assets\Sign In-Username\Asset 5%403x.png" />
+    <Content Include="Assets\Sign In-Username\Asset 5%404x.png" />
+    <Content Include="Assets\Sign In-Username\Asset 5.png" />
+    <Content Include="Assets\TXT-Closer to Nature\Asset 13%400.5x.png" />
+    <Content Include="Assets\TXT-Closer to Nature\Asset 13%400.75x.png" />
+    <Content Include="Assets\TXT-Closer to Nature\Asset 13%401.5x.png" />
+    <Content Include="Assets\TXT-Closer to Nature\Asset 13%402x.png" />
+    <Content Include="Assets\TXT-Closer to Nature\Asset 13%403x.png" />
+    <Content Include="Assets\TXT-Closer to Nature\Asset 13%404x.png" />
+    <Content Include="Assets\TXT-Closer to Nature\Asset 13.png" />
+    <Content Include="Content\ajax-loader.gif" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\Sidebar\sidebar-overlay.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\image_preview_for_links.css" />
+    <Content Include="Content\main2.css" />
+    <Content Include="Content\main.min.css" />
+    <Content Include="Content\slick-theme.css" />
+    <Content Include="Content\slick.css" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\calibril.svg" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\Quicksand-Regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="gulpfile.js" />
+    <Content Include="Images\circle-1.png" />
+    <Content Include="Images\circle-2.png" />
+    <Content Include="Images\circle-3.png" />
+    <Content Include="Images\CockpitHome1.ico" />
+    <Content Include="Images\ic-search.png" />
+    <Content Include="Images\icon-header-login.png" />
+    <Content Include="Images\Icon\5s.png" />
+    <Content Include="Images\Icon\Arrows.png" />
+    <Content Include="Images\Icon\assettagging.png" />
+    <Content Include="Images\Icon\assettracking.png" />
+    <Content Include="Images\Icon\AssyTool.png" />
+    <Content Include="Images\Icon\Auto-Appraisal.png" />
+    <Content Include="Images\Icon\BLWH.png" />
+    <Content Include="Images\Icon\canteen.ico" />
+    <Content Include="Images\Icon\canteen.png" />
+    <Content Include="Images\Icon\CKSICON.png" />
+    <Content Include="Images\Icon\CPM.png" />
+    <Content Include="Images\Icon\CPS.png" />
+    <Content Include="Images\Icon\Cycle.png" />
+    <Content Include="Images\Icon\dashboard.png" />
+    <Content Include="Images\Icon\DashInc.png" />
+    <Content Include="Images\Icon\DataInfo.png" />
+    <Content Include="Images\Icon\DH_WEB.png" />
+    <Content Include="Images\Icon\DPO.png" />
+    <Content Include="Images\Icon\durability.png" />
+    <Content Include="Images\Icon\e-PA.png" />
+    <Content Include="Images\Icon\eChop Common.png" />
+    <Content Include="Images\Icon\eChop.png" />
+    <Content Include="Images\Icon\ecs.png" />
+    <Content Include="Images\Icon\ecsw.png" />
+    <Content Include="Images\Icon\edmcl.png" />
+    <Content Include="Images\Icon\eForm.png" />
+    <Content Include="Images\Icon\eformCommon.jpg" />
+    <Content Include="Images\Icon\eFormCommon.png" />
+    <Content Include="Images\Icon\ELabel.png" />
+    <Content Include="Images\Icon\elearning.png" />
+    <Content Include="Images\Icon\ENameCard.png" />
+    <Content Include="Images\Icon\ePA.png" />
+    <Content Include="Images\Icon\EPQS.png" />
+    <Content Include="Images\Icon\eprocid.png" />
+    <Content Include="Images\Icon\eProcurement.png" />
+    <Content Include="Images\Icon\epta.png" />
+    <Content Include="Images\Icon\eRecruitment.png" />
+    <Content Include="Images\Icon\E_learning.jpeg" />
+    <Content Include="Images\Icon\FGWeight.jpg" />
+    <Content Include="Images\Icon\FGWeight.png" />
+    <Content Include="Images\Icon\FGWeightSLH.jpg" />
+    <Content Include="Images\Icon\FGWeightSLH.png" />
+    <Content Include="Images\Icon\FPORP.png" />
+    <Content Include="Images\Icon\FPWeight.png" />
+    <Content Include="Images\Icon\FP_Monitoring.png" />
+    <Content Include="Images\Icon\FROSS.png" />
+    <Content Include="Images\Icon\icon lama\Arrows.png" />
+    <Content Include="Images\Icon\icon lama\AssyTool.png" />
+    <Content Include="Images\Icon\icon lama\CPM.png" />
+    <Content Include="Images\Icon\icon lama\CPS.png" />
+    <Content Include="Images\Icon\icon lama\dashboard.png" />
+    <Content Include="Images\Icon\icon lama\DataInfo.png" />
+    <Content Include="Images\Icon\icon lama\DH_WEB.png" />
+    <Content Include="Images\Icon\icon lama\DPO.png" />
+    <Content Include="Images\Icon\icon lama\durability.png" />
+    <Content Include="Images\Icon\icon lama\eChop.png" />
+    <Content Include="Images\Icon\icon lama\ecs.png" />
+    <Content Include="Images\Icon\icon lama\ecsw.png" />
+    <Content Include="Images\Icon\icon lama\edmcl.png" />
+    <Content Include="Images\Icon\icon lama\ELabel.png" />
+    <Content Include="Images\Icon\icon lama\EPQS.png" />
+    <Content Include="Images\Icon\icon lama\eprocid.png" />
+    <Content Include="Images\Icon\icon lama\epta.png" />
+    <Content Include="Images\Icon\icon lama\FGWeight.jpg" />
+    <Content Include="Images\Icon\icon lama\FPWeight.png" />
+    <Content Include="Images\Icon\icon lama\FP_Monitoring.png" />
+    <Content Include="Images\Icon\icon lama\FROSS.png" />
+    <Content Include="Images\Icon\icon lama\inventory.jpg" />
+    <Content Include="Images\Icon\icon lama\inventory.png" />
+    <Content Include="Images\Icon\icon lama\iqs.png" />
+    <Content Include="Images\Icon\icon lama\jadever.jpg" />
+    <Content Include="Images\Icon\icon lama\JEQ.jpg" />
+    <Content Include="Images\Icon\icon lama\JEQ.png" />
+    <Content Include="Images\Icon\icon lama\linencqc.png" />
+    <Content Include="Images\Icon\icon lama\LNC.png" />
+    <Content Include="Images\Icon\icon lama\MDM.png" />
+    <Content Include="Images\Icon\icon lama\mmm.png" />
+    <Content Include="Images\Icon\icon lama\PaintMixing.png" />
+    <Content Include="Images\Icon\icon lama\PCS.png" />
+    <Content Include="Images\Icon\icon lama\ProdPerformance.jpg" />
+    <Content Include="Images\Icon\icon lama\RFID.png" />
+    <Content Include="Images\Icon\icon lama\RTW.png" />
+    <Content Include="Images\Icon\icon lama\S2S.png" />
+    <Content Include="Images\Icon\icon lama\SAFE.png" />
+    <Content Include="Images\Icon\icon lama\SBM_FGWH.png" />
+    <Content Include="Images\Icon\icon lama\SGPR.png" />
+    <Content Include="Images\Icon\icon lama\SPCK.png" />
+    <Content Include="Images\Icon\icon lama\SPCM.jpg" />
+    <Content Include="Images\Icon\icon lama\SSIT.png" />
+    <Content Include="Images\Icon\icon lama\Tool.jpg" />
+    <Content Include="Images\Icon\icon lama\TPM.png" />
+    <Content Include="Images\Icon\icon lama\WAVES.png" />
+    <Content Include="Images\Icon\icon yang belum terpakai\Android Picking.png" />
+    <Content Include="Images\Icon\icon yang belum terpakai\Asset Printing.png" />
+    <Content Include="Images\Icon\icon yang belum terpakai\Cycle Count.png" />
+    <Content Include="Images\Icon\icon yang belum terpakai\eBloodDonation.png" />
+    <Content Include="Images\Icon\icon yang belum terpakai\PELM - TPM.png" />
+    <Content Include="Images\Icon\icon yang belum terpakai\RVMS.png" />
+    <Content Include="Images\Icon\icon yang belum terpakai\Subfish.png" />
+    <Content Include="Images\Icon\icon yang belum terpakai\VMS.png" />
+    <Content Include="Images\Icon\icon yang belum terpakai\Warranty card printing.png" />
+    <Content Include="Images\Icon\IM_Tooling.png" />
+    <Content Include="Images\Icon\inventory.jpg" />
+    <Content Include="Images\Icon\inventory.png" />
+    <Content Include="Images\Icon\iqs.png" />
+    <Content Include="Images\Icon\ITHelpDesk.png" />
+    <Content Include="Images\Icon\jadever.jpg" />
+    <Content Include="Images\Icon\JEQ.jpg" />
+    <Content Include="Images\Icon\JEQ.png" />
+    <Content Include="Images\Icon\linencqc.png" />
+    <Content Include="Images\Icon\LNC.png" />
+    <Content Include="Images\Icon\LOS.png" />
+    <Content Include="Images\Icon\LWS.png" />
+    <Content Include="Images\Icon\MDM.png" />
+    <Content Include="Images\Icon\MEAL.png" />
+    <Content Include="Images\Icon\MealOrder.png" />
+    <Content Include="Images\Icon\mmm.png" />
+    <Content Include="Images\Icon\MMS.png" />
+    <Content Include="Images\Icon\MyScreenTV1.png" />
+    <Content Include="Images\Icon\new\5s.png" />
+    <Content Include="Images\Icon\new\Applicaton.png" />
+    <Content Include="Images\Icon\new\Arrows.png" />
+    <Content Include="Images\Icon\new\assettagging.png" />
+    <Content Include="Images\Icon\new\assettracking.png" />
+    <Content Include="Images\Icon\new\AssyTool.png" />
+    <Content Include="Images\Icon\new\ATS.png" />
+    <Content Include="Images\Icon\new\Audit-Scanner.png" />
+    <Content Include="Images\Icon\new\Auto-Appraisal.png" />
+    <Content Include="Images\Icon\new\AutoReporting.png" />
+    <Content Include="Images\Icon\new\BIKE_COCKPIT.gif" />
+    <Content Include="Images\Icon\new\BLWH.png" />
+    <Content Include="Images\Icon\new\canteen.ico" />
+    <Content Include="Images\Icon\new\canteen.png" />
+    <Content Include="Images\Icon\new\cc.png" />
+    <Content Include="Images\Icon\new\CInventory.png" />
+    <Content Include="Images\Icon\new\CKSICON.png" />
+    <Content Include="Images\Icon\new\CPM.png" />
+    <Content Include="Images\Icon\new\CPS.png" />
+    <Content Include="Images\Icon\new\Cycle.png" />
+    <Content Include="Images\Icon\new\cyclops.png" />
+    <Content Include="Images\Icon\new\dashboard.png" />
+    <Content Include="Images\Icon\new\DashInc.png" />
+    <Content Include="Images\Icon\new\DataInfo.png" />
+    <Content Include="Images\Icon\new\DH_WEB.png" />
+    <Content Include="Images\Icon\new\DPO.png" />
+    <Content Include="Images\Icon\new\durability.png" />
+    <Content Include="Images\Icon\new\e-PA.png" />
+    <Content Include="Images\Icon\new\E-Planning.png" />
+    <Content Include="Images\Icon\new\E-WeightSystem.png" />
+    <Content Include="Images\Icon\new\eChop Common.png" />
+    <Content Include="Images\Icon\new\eChop.png" />
+    <Content Include="Images\Icon\new\ecs.png" />
+    <Content Include="Images\Icon\new\ecsw.png" />
+    <Content Include="Images\Icon\new\edmcl.png" />
+    <Content Include="Images\Icon\new\eForm.png" />
+    <Content Include="Images\Icon\new\eformCommon.jpg" />
+    <Content Include="Images\Icon\new\eFormCommon.png" />
+    <Content Include="Images\Icon\new\ELabel.png" />
+    <Content Include="Images\Icon\new\elearning.png" />
+    <Content Include="Images\Icon\new\ENameCard.png" />
+    <Content Include="Images\Icon\new\ePA.png" />
+    <Content Include="Images\Icon\new\EPACKING.png" />
+    <Content Include="Images\Icon\new\EPQS.png" />
+    <Content Include="Images\Icon\new\eprocid.png" />
+    <Content Include="Images\Icon\new\eProcurement.png" />
+    <Content Include="Images\Icon\new\epta.png" />
+    <Content Include="Images\Icon\new\eRecruitment.png" />
+    <Content Include="Images\Icon\new\E_learning.jpeg" />
+    <Content Include="Images\Icon\new\FGWeight.jpg" />
+    <Content Include="Images\Icon\new\FGWeight.png" />
+    <Content Include="Images\Icon\new\FGWeightSLH.jpg" />
+    <Content Include="Images\Icon\new\FGWeightSLH.png" />
+    <Content Include="Images\Icon\new\FGWMS.png" />
+    <Content Include="Images\Icon\new\FPORP.png" />
+    <Content Include="Images\Icon\new\FPSPCWeb.png" />
+    <Content Include="Images\Icon\new\FPWeight.png" />
+    <Content Include="Images\Icon\new\FP_Monitoring.png" />
+    <Content Include="Images\Icon\new\FROSS.png" />
+    <Content Include="Images\Icon\new\FSP.png" />
+    <Content Include="Images\Icon\new\Guaranteecard.png" />
+    <Content Include="Images\Icon\new\IM_Tooling.png" />
+    <Content Include="Images\Icon\new\inventory.png" />
+    <Content Include="Images\Icon\new\iqs.png" />
+    <Content Include="Images\Icon\new\ITHelpDesk.png" />
+    <Content Include="Images\Icon\new\jadever.jpg" />
+    <Content Include="Images\Icon\new\JEQ.jpg" />
+    <Content Include="Images\Icon\new\JEQ.png" />
+    <Content Include="Images\Icon\new\linencqc.png" />
+    <Content Include="Images\Icon\new\LNC.png" />
+    <Content Include="Images\Icon\new\LOS.png" />
+    <Content Include="Images\Icon\new\LWS.png" />
+    <Content Include="Images\Icon\new\MDM.png" />
+    <Content Include="Images\Icon\new\MEAL.png" />
+    <Content Include="Images\Icon\new\MealOrder.png" />
+    <Content Include="Images\Icon\new\mmm.png" />
+    <Content Include="Images\Icon\new\MMS.png" />
+    <Content Include="Images\Icon\new\MyScreenTV1.png" />
+    <Content Include="Images\Icon\new\OEE.png" />
+    <Content Include="Images\Icon\new\ORE.png" />
+    <Content Include="Images\Icon\new\OREDash.png" />
+    <Content Include="Images\Icon\new\PaintMixing.png" />
+    <Content Include="Images\Icon\new\PaintPurchanse.png" />
+    <Content Include="Images\Icon\new\PCS.png" />
+    <Content Include="Images\Icon\new\PELM - TPM.png" />
+    <Content Include="Images\Icon\new\ProdPerformance.jpg" />
+    <Content Include="Images\Icon\new\ProdPerformance.png" />
+    <Content Include="Images\Icon\new\ProductLabel.png" />
+    <Content Include="Images\Icon\new\QlikSense.png" />
+    <Content Include="Images\Icon\new\Quality Dashboard.png" />
+    <Content Include="Images\Icon\new\RFID.png" />
+    <Content Include="Images\Icon\new\ROD_COCKPIT.gif" />
+    <Content Include="Images\Icon\new\RTW.png" />
+    <Content Include="Images\Icon\new\RTYAssy.png" />
+    <Content Include="Images\Icon\new\RTYImprovement.png" />
+    <Content Include="Images\Icon\new\RTYModel.png" />
+    <Content Include="Images\Icon\new\RTYProc.png" />
+    <Content Include="Images\Icon\new\RTYProd.png" />
+    <Content Include="Images\Icon\new\RTYSP.png" />
+    <Content Include="Images\Icon\new\RVMS.png" />
+    <Content Include="Images\Icon\new\S2S FP.png" />
+    <Content Include="Images\Icon\new\S2S.png" />
+    <Content Include="Images\Icon\new\S2SApp.png" />
+    <Content Include="Images\Icon\new\SAFE.png" />
+    <Content Include="Images\Icon\new\SBM_FGWH.png" />
+    <Content Include="Images\Icon\new\SGPR.png" />
+    <Content Include="Images\Icon\new\shipping.png" />
+    <Content Include="Images\Icon\new\Sigma.png" />
+    <Content Include="Images\Icon\new\SPCK.png" />
+    <Content Include="Images\Icon\new\SPCM.jpg" />
+    <Content Include="Images\Icon\new\SPCM.png" />
+    <Content Include="Images\Icon\new\SPS.png" />
+    <Content Include="Images\Icon\new\SS10.png" />
+    <Content Include="Images\Icon\new\SSIT.png" />
+    <Content Include="Images\Icon\new\Sunfish.png" />
+    <Content Include="Images\Icon\new\Tool.jpg" />
+    <Content Include="Images\Icon\new\TPM.png" />
+    <Content Include="Images\Icon\new\VDS.png" />
+    <Content Include="Images\Icon\new\VDS_2_0_LOGO.png" />
+    <Content Include="Images\Icon\new\visibukku.png" />
+    <Content Include="Images\Icon\new\WAVES.png" />
+    <Content Include="Images\Icon\OEE.png" />
+    <Content Include="Images\Icon\ORE.png" />
+    <Content Include="Images\Icon\OREDash.png" />
+    <Content Include="Images\Icon\Paint Purchanse.png" />
+    <Content Include="Images\Icon\PaintMixing.png" />
+    <Content Include="Images\Icon\PCS.png" />
+    <Content Include="Images\Icon\PELM - TPM.png" />
+    <Content Include="Images\Icon\ProdPerformance.png" />
+    <Content Include="Images\Icon\QlikSense.png" />
+    <Content Include="Images\Icon\Quality Dashboard.png" />
+    <Content Include="Images\Icon\RFID.png" />
+    <Content Include="Images\Icon\RTW.png" />
+    <Content Include="Images\Icon\RTYAssy.png" />
+    <Content Include="Images\Icon\RTYImprovement.png" />
+    <Content Include="Images\Icon\RTYModel.png" />
+    <Content Include="Images\Icon\RTYProc.png" />
+    <Content Include="Images\Icon\RTYProd.png" />
+    <Content Include="Images\Icon\RTYSP.png" />
+    <Content Include="Images\Icon\S2S FP.png" />
+    <Content Include="Images\Icon\S2S.png" />
+    <Content Include="Images\Icon\S2SApp.png" />
+    <Content Include="Images\Icon\SAFE.png" />
+    <Content Include="Images\Icon\SBM_FGWH.png" />
+    <Content Include="Images\Icon\SGPR.png" />
+    <Content Include="Images\Icon\shipping.png" />
+    <Content Include="Images\Icon\Sigma.png" />
+    <Content Include="Images\Icon\SPCK.png" />
+    <Content Include="Images\Icon\SPCM.jpg" />
+    <Content Include="Images\Icon\SPCM.png" />
+    <Content Include="Images\Icon\SSIT.png" />
+    <Content Include="Images\Icon\Sunfish.png" />
+    <Content Include="Images\Icon\Tool.jpg" />
+    <Content Include="Images\Icon\TPM.png" />
+    <Content Include="Images\Icon\VDS_2_0_LOGO.png" />
+    <Content Include="Images\Icon\visibukku.png" />
+    <Content Include="Images\Icon\WAVES.png" />
+    <Content Include="Images\ic_lock_password.png" />
+    <Content Include="Images\ic_username.png" />
+    <Content Include="Images\line-loader-left.png" />
+    <Content Include="Images\line-loader-right.png" />
+    <Content Include="Images\line-rotate.png" />
+    <Content Include="Images\line-thin-circle.png" />
+    <Content Include="Images\lock-bounce.png" />
+    <Content Include="Images\main-loader-thin.png" />
+    <Content Include="Images\main-loader.png" />
+    <Content Include="Images\RightSideNav\Image1.png" />
+    <Content Include="Images\RightSideNav\Image4.png" />
+    <Content Include="Images\RightSideNav\Image5.png" />
+    <Content Include="Images\RightSideNav\PNG\5S.png" />
+    <Content Include="Images\RightSideNav\PNG\Dashboard.png" />
+    <Content Include="Images\RightSideNav\PNG\Quality Performance.png" />
+    <Content Include="Images\RightSideNav\PNG\RTY by Assembly.png" />
+    <Content Include="Images\RightSideNav\PNG\RTY by Model.png" />
+    <Content Include="Images\RightSideNav\PNG\RTY by Process.png" />
+    <Content Include="Images\RightSideNav\PNG\RTY by Project.png" />
+    <Content Include="Images\RightSideNav\PNG\RTY by Single Part.png" />
+    <Content Include="Images\shimano-white-logo.png" />
+    <Content Include="Images\shimano-white-logo_tmp2.png" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\scss\lib\component\_animate-delay.scss" />
+    <Content Include="Content\scss\lib\component\_buttons.scss" />
+    <Content Include="Content\scss\lib\component\_corner-border.scss" />
+    <Content Include="Content\scss\lib\component\_fixed-object.scss" />
+    <Content Include="Content\scss\lib\component\_login.scss" />
+    <Content Include="Content\scss\lib\component\_main-loader.scss" />
+    <Content Include="Content\scss\lib\component\_setting.scss" />
+    <Content Include="Content\scss\lib\component\_side-list.scss" />
+    <Content Include="Content\scss\lib\component\_splash-loader.scss" />
+    <Content Include="Content\scss\lib\helpers\_all-helpers.scss" />
+    <Content Include="Content\scss\lib\helpers\_text.scss" />
+    <Content Include="Content\scss\lib\plugins\fontawesome\_animated.scss" />
+    <Content Include="Content\scss\lib\plugins\fontawesome\_bordered-pulled.scss" />
+    <Content Include="Content\scss\lib\plugins\fontawesome\_brands.scss" />
+    <Content Include="Content\scss\lib\plugins\fontawesome\_core.scss" />
+    <Content Include="Content\scss\lib\plugins\fontawesome\_fixed-width.scss" />
+    <Content Include="Content\scss\lib\plugins\fontawesome\_fontawesome.scss" />
+    <Content Include="Content\scss\lib\plugins\fontawesome\_icons.scss" />
+    <Content Include="Content\scss\lib\plugins\fontawesome\_larger.scss" />
+    <Content Include="Content\scss\lib\plugins\fontawesome\_list.scss" />
+    <Content Include="Content\scss\lib\plugins\fontawesome\_mixins.scss" />
+    <Content Include="Content\scss\lib\plugins\fontawesome\_regular.scss" />
+    <Content Include="Content\scss\lib\plugins\fontawesome\_rotated-flipped.scss" />
+    <Content Include="Content\scss\lib\plugins\fontawesome\_screen-reader.scss" />
+    <Content Include="Content\scss\lib\plugins\fontawesome\_shims.scss" />
+    <Content Include="Content\scss\lib\plugins\fontawesome\_solid.scss" />
+    <Content Include="Content\scss\lib\plugins\fontawesome\_stacked.scss" />
+    <Content Include="Content\scss\lib\plugins\fontawesome\_v4-shims.scss" />
+    <Content Include="Content\scss\lib\plugins\fontawesome\_variables.scss" />
+    <Content Include="Content\scss\lib\_base.scss" />
+    <Content Include="Content\scss\lib\_colors.scss" />
+    <Content Include="Content\scss\lib\_mixins.scss" />
+    <Content Include="Content\scss\lib\_variable.scss" />
+    <Content Include="Content\scss\main.scss" />
+    <Content Include="fonts\calibril.eot" />
+    <Content Include="fonts\calibril.otf" />
+    <Content Include="fonts\calibril.ttf" />
+    <Content Include="fonts\calibril.woff" />
+    <Content Include="fonts\calibril.woff2" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\dashboard.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\search.js" />
+    <Content Include="Scripts\setting.js" />
+    <Content Include="Scripts\sidebar-overlay.js" />
+    <Content Include="Scripts\timer.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
+    <Content Include="webfonts\fa-brands-400.svg" />
+    <Content Include="webfonts\fa-regular-400.svg" />
+    <Content Include="webfonts\fa-solid-900.svg" />
+    <Content Include="package-lock.json" />
+    <Content Include="package.json" />
+    <Content Include="Content\scss\lib\component\_half-preview.scss" />
+    <Content Include="Content\scss\lib\component\_fullscreen-preview.scss" />
+    <Content Include="fonts\Quicksand-Regular.eot" />
+    <Content Include="fonts\Quicksand-Regular.otf" />
+    <Content Include="fonts\Quicksand-Regular.ttf" />
+    <Content Include="fonts\Quicksand-Regular.woff" />
+    <Content Include="fonts\Quicksand-Regular.woff2" />
+    <Content Include="Content\scss\lib\component\_pilar.scss" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Scripts\imagepreview.min.js" />
+    <Content Include="Scripts\image_preview_for_links.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\slick.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Main\Indexold.cshtml" />
+    <Content Include="Views\Splash\Index.cshtml" />
+    <Content Include="webfonts\fa-brands-400.eot" />
+    <Content Include="webfonts\fa-brands-400.ttf" />
+    <Content Include="webfonts\fa-brands-400.woff" />
+    <Content Include="webfonts\fa-brands-400.woff2" />
+    <Content Include="webfonts\fa-regular-400.eot" />
+    <Content Include="webfonts\fa-regular-400.ttf" />
+    <Content Include="webfonts\fa-regular-400.woff" />
+    <Content Include="webfonts\fa-regular-400.woff2" />
+    <Content Include="webfonts\fa-solid-900.eot" />
+    <Content Include="webfonts\fa-solid-900.ttf" />
+    <Content Include="webfonts\fa-solid-900.woff" />
+    <Content Include="webfonts\fa-solid-900.woff2" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Main\Index.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Properties\PublishProfiles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51108</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:51108/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

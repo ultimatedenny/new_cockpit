@@ -1,0 +1,39 @@
+﻿/// <reference path="lib/_mixins.scss" />
+/// <reference path="lib/_variable.scss" />
+/// <reference path="lib/_colors.scss" />
+/// <reference path="lib/_base.scss" />
+
+/// <reference path="lib/helpers/_all-helpers.scss" />
+
+
+/*===========================================
+   Combine All Lib SCSS In Here
+  ===========================================
+*/
+
+@import 'lib/_mixins.scss';
+@import 'lib/_variable.scss';
+@import 'lib/_colors.scss';
+@import 'lib/_base.scss';
+
+@import 'lib/helpers/_all-helpers.scss';
+@import 'lib/helpers/_text.scss';
+
+@import 'lib/component/_buttons.scss';
+@import 'lib/component/_splash-loader.scss';
+@import 'lib/component/_main-loader.scss';
+
+@import 'lib/component/_corner-border.scss';
+@import 'lib/component/_login.scss';
+@import 'lib/component/_setting.scss';
+@import 'lib/component/_fixed-object.scss';
+@import 'lib/component/_side-list.scss';
+@import 'lib/component/_half-preview.scss';
+@import 'lib/component/_pilar.scss';
+@import 'lib/component/_fullscreen-preview.scss';
+@import 'lib/component/_animate-delay.scss';
+
+
+@import 'lib/plugins/fontawesome/_fontawesome.scss';
+@import 'lib/plugins/fontawesome/_solid.scss';
+@import 'lib/plugins/fontawesome/_brands.scss';

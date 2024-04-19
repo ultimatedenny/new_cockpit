@@ -1,0 +1,195 @@
+﻿/*===============================
+    Loader Style on main page
+  ===============================
+*/
+.c-main-loader {
+    &__box {
+        position: relative;
+        position: fixed;
+        width: 24%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index:10;
+    }
+
+    &__center-position {
+        /*position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 0%);*/
+        /*margin-top: 17%;*/
+    }
+
+    &__circle-1 {
+        width: 100%;
+        height: auto;
+    }
+
+    &__circle-2 {
+        width: 60%;
+        transform: translate(-50%,-50%);
+        top: 50%;
+        left: 50%;
+        height: auto;
+        -webkit-animation-delay: 0.5s;
+        animation-delay: 0.5s;
+    }
+
+
+    &__circle-3 {
+        width: 60%;
+        height: auto;
+        transform: translate(-50%, -50%);
+        top: 20%;
+        left: 20%;
+        animation: spin 3s linear infinite;
+        -webkit-animation: spin 3s linear infinite;
+        -moz-animation: spin 3s linear infinite;
+        -ms-animation: spin 3s linear infinite;
+        -o-animation: spin 3s linear infinite;
+    }
+
+    &__box-running-text {
+        transform: translate(-50%,-50%);
+        left: 50%;
+        top: 50%;
+        position: fixed;
+        width: 9%;
+        height: 10vw;
+        z-index: 11;
+    }
+
+    &--header-running-text {
+        font-size: 1.2vw;
+        text-align: center;
+    }
+
+    &--contetn-running-text {
+        font-size: 0.8vw;
+        text-align: center;
+    }
+    /*4 Pilar*/
+    &__line-pillar-left-1 {
+        width: 20%;
+        transform: translate(-50%,-50%);
+        position: fixed;
+        z-index: 0;
+        left: 35%;
+        top: 31%;
+    }
+
+
+    &__line-pillar-left-2 {
+        width: 20%;
+        transform: translate(-50%,-50%);
+        position: fixed;
+        z-index: 0;
+        left: 35%;
+        bottom: 20%;
+    }
+
+
+    &__line-pillar-right-1 {
+        width: 20%;
+        transform: translate(-50%,-50%);
+        position: fixed;
+        z-index: 0;
+        right: 15%;
+        top: 31%;
+    }
+
+
+    &__line-pillar-right-2 {
+        width: 20%;
+        transform: translate(-50%,-50%);
+        position: fixed;
+        z-index: 0;
+        right: 15%;
+        bottom: 20%;
+    }
+
+    &__title-pillar-left {
+        color: $color-base;
+        font-size: 4vw;
+        text-align: left;
+        margin-left: 8%;
+        margin-bottom: -3%;
+        text-align: left;
+        font-weight: 600;
+    }
+
+    &__subtitle-pillar-left {
+        color: #35C1C1;
+        font-size: 1.5vw;
+        text-align: left;
+        font-style: italic;
+        margin-left: -5%;
+        margin-top: 3%;
+        text-align: left;
+        font-weight: 600;
+    }
+
+    &__title-pillar-right {
+        color: $color-base;
+        font-size: 4vw;
+        text-align: left;
+        margin-right: 8%;
+        margin-bottom: -3%;
+        text-align: right;
+        font-weight: 600;
+    }
+
+    &__subtitle-pillar-right {
+        color: #35C1C1;
+        font-size: 1.5vw;
+        text-align: left;
+        font-style: italic;
+        margin-right: -5%;
+        margin-top: 3%;
+        text-align: right;
+        font-weight: 600;
+    }
+}
+
+
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spinreverse {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+@-webkit-keyframes fade-in {
+    0% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 0.9;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 0.9;
+    }
+}

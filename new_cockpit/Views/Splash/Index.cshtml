@@ -1,0 +1,28 @@
+﻿@{
+                ViewBag.Title = "Splash";
+}
+
+<div class="container-fluid hide-under-resolution  width-100pc">
+    <div class="width-100pc opacity-logo-shimano">
+        <img src="~/Images/shimano-white-logo.png" class="c-splash-loader--logo-shimano c-splash-logo" />
+    </div>
+
+    <div class="width-100pc">
+        <div class="c-splash-loader__box start c-splash-loader">
+            <div>
+                <img src="~/Images/circle-1.png" class="c-splash-loader__circle-1" />
+                <img src="~/Images/circle-2.png" class="position-a c-splash-loader__circle-2" />
+                <img src="~/Images/circle-3.png" class="position-a c-splash-loader__circle-3" />
+
+                <span onclick="openMainDashboard()" class="cursor-pointer">
+                    <img src="~/Images/lock-bounce.png" class="position-a c-splash-loader__lock" />
+                </span>
+
+            </div>
+        </div>
+    </div>
+
+    @* Tagline Bawah *@
+    <div class="c-splash-loader__tagline-mes-cockpit third c-splash-mes">MES COCKPIT</div>
+
+</div>

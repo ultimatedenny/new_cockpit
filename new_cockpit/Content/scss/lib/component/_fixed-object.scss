@@ -1,0 +1,28 @@
+﻿/*===============================
+    Object Fixed Position
+  ===============================
+*/
+.c-fixed-object {
+    &__btn-setting {
+        position: fixed;
+        right: 2vw;
+        bottom: 2vw;
+    }
+
+    &__btn-login {
+        position: fixed;
+        right: 8vw;
+        bottom: 2vw;
+    }
+
+    &__shimano-logo {
+        position: fixed;
+        bottom: 0;
+        height: auto;
+        max-width: 100%;
+        width: 20%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        opacity: .7;
+    }
+}

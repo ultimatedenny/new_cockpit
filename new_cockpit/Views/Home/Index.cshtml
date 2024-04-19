@@ -1,0 +1,383 @@
+﻿@model new_cockpit.Models.Dashboard
+
+@{
+    ViewBag.Title = "Main";
+}
+
+
+@* ========================
+     Main Header
+    =========================*@
+
+
+<script>
+    function ShowLoading(isView, text) {
+        if (isView) {
+            $("#labelLoading").html(text + "<br><br><small>Please wait untill finish..</small>")
+            $("#modalLoading").modal({
+                backdrop: "static", //remove ability to close modal with click
+                keyboard: false, //remove option to close with keyboard
+                show: true //Display loader!
+            });
+        }
+        else {
+            $("#modalLoading").modal("hide");
+            //toastr.success("Update " + text + " Successfully", "Success");
+        }
+    }
+</script>
+
+<div class="modal fade" id="modalLoading" tabindex="-1" role="dialog" aria-labelledby="loadMeLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="loader"></div>
+                <div clas="loader-txt">
+                    <p id="labelLoading">Please wait untill finish...</p>
+                </div>
+                <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+
+    .dropbtn {
+        background-color: #3498DB;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+        .dropbtn:hover, .dropbtn:focus {
+            background-color: #2980B9;
+        }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: black;
+        min-width: 160px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+        .dropdown-content a {
+            color: #4DFFFF;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+    .dropdown a:hover {
+        background-color: transparent;
+    }
+
+    .show {
+        display: block;
+    }
+
+    .carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {
+        max-width: 85%;
+    }
+
+    .border-animated {
+        background: none;
+        background-repeat: repeat-x;
+        background-size: 16px 4px;
+        padding: 2px;
+        animation: dash 60s linear infinite;
+        position: fixed;
+        z-index: 0;
+        min-width: 65%;
+        top: 50%;
+        max-width: 100%;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+
+    :root {
+        --main-BIKE: translate(-135.34%, -50%);
+        --main-BIKE-X: -145.34%;
+        --main-ROD: translate(35.32%, -50%);
+        --main-ROD-X: 45.32%;
+    }
+
+    .c-entrace-bike {
+        opacity: 0;
+        animation: fadeIn 0.7s ease-in-out 0s forwards;
+    }
+
+    .c-entrace-rod {
+        opacity: 0;
+        animation: fadeIn 0.6s ease-in-out 0s forwards;
+    }
+
+    .b-fixed-object_BIKE {
+        position: fixed;
+        width: 17.5%;
+        top: 50%;
+        left: 50%;
+        transform: var(--main-BIKE);
+    }
+        .b-fixed-object_BIKE:hover {
+            cursor: pointer;
+            -webkit-animation: slide-fwd-topBIKE 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            animation: slide-fwd-topBIKE 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
+    @@-webkit-keyframes slide-fwd-topBIKE {
+        0% {
+            -webkit-transform: var(--main-BIKE) translateY(0);
+            transform: var(--main-BIKE) translateY(0);
+        }
+
+        100% {
+            -webkit-transform: var(--main-BIKE) translateY(-75px) scale(1.1);
+            transform: var(--main-BIKE) translateY(-75px) scale(1.1);
+        }
+    }
+
+    .b-fixed-object_ROD {
+        position: fixed;
+        width: 17.5%;
+        top: 50%;
+        left: 50%;
+        transform: var(--main-ROD);
+    }
+        .b-fixed-object_ROD:hover {
+            cursor: pointer;
+            -webkit-animation: slide-fwd-topROD 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            animation: slide-fwd-topROD 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
+    @@-webkit-keyframes slide-fwd-topROD {
+        0% {
+            -webkit-transform: var(--main-ROD) translateY(0);
+            transform: var(--main-ROD) translateY(0);
+        }
+
+        100% {
+            -webkit-transform: var(--main-ROD) translateY(-75px) scale(1.1);
+            transform: var(--main-ROD) translateY(-75px) scale(1.1);
+        }
+    }
+
+    @@keyframes shakeBIKE {
+        0% {
+            top: 50%;
+            transform: var(--main-BIKE) rotate(0deg);
+        }
+
+        10% {
+            transform: var(--main-BIKE) rotate(-2deg);
+        }
+
+        20% {
+            transform: var(--main-BIKE) rotate(0deg);
+        }
+
+        30% {
+            transform: var(--main-BIKE) rotate(2deg);
+        }
+
+        40% {
+            transform: var(--main-BIKE) rotate(1deg);
+        }
+
+        50% {
+            transform: var(--main-BIKE) rotate(-1deg);
+        }
+
+        60% {
+            transform: var(--main-BIKE) rotate(2deg);
+        }
+
+        70% {
+            transform: var(--main-BIKE) rotate(-1deg);
+        }
+
+        80% {
+            transform: var(--main-BIKE) rotate(2deg);
+        }
+
+        90% {
+            transform: var(--main-BIKE) rotate(0deg);
+        }
+
+        100% {
+            transform: var(--main-BIKE) rotate(-2deg);
+        }
+    }
+
+    @@keyframes shakeROD {
+        0% {
+            top: 50%;
+            transform: var(--main-ROD) rotate(1deg);
+        }
+
+        10% {
+            transform: var(--main-ROD) rotate(-1deg);
+        }
+
+        20% {
+            transform: var(--main-ROD) rotate(2deg);
+        }
+
+        30% {
+            transform: var(--main-ROD) rotate(1deg);
+        }
+
+        40% {
+            transform: var(--main-ROD) rotate(1deg);
+        }
+
+        50% {
+            transform: var(--main-ROD) rotate(-1deg);
+        }
+
+        60% {
+            transform: var(--main-ROD) rotate(0deg);
+        }
+
+        70% {
+            transform: var(--main-ROD) rotate(-2deg);
+        }
+
+        80% {
+            transform: var(--main-ROD) rotate(1deg);
+        }
+
+        90% {
+            transform: var(--main-ROD) rotate(0deg);
+        }
+
+        100% {
+            transform: var(--main-ROD) rotate(-2deg);
+        }
+    }
+</style>
+<script>
+    function myDropDownList() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+</script>
+<div class="row margin-t-2-vw c-main-all">
+    <div class="padding-lr-1-pc">
+
+
+        
+
+
+        <div class="col-lg-6 col-md-6">
+            <div>
+                <img src="~/Assets/Logo/Asset 31.png" onclick="shakemenu();" class="b-fixed-object_shimano-logo">
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div>
+
+@* End Main Header *@
+@* ========================
+    Content Body
+    ========================*@
+<div class="row">
+    <div class="padding-lr-2-pc">
+
+        <script>
+
+            function shakemenu() {
+                $("#BIKE_Menu").addClass("animate-BIKE");
+                $("#ROD_Menu").addClass("animate-ROD");
+            }
+
+
+            function clickRightArrow() {
+                document.getElementById("rightsearch").value = '';
+                searchRightModal();
+
+
+            }
+            function clickLeftArrow() {
+                document.getElementById("leftsearch").value = '';
+                searchLeftModal();
+
+            }
+        </script>
+
+
+        @* Center Content Body by Bondra *@
+
+        <div class="c-entrace-line">
+            <div class="border-animated"></div>
+        </div>
+
+        <div class="c-entrace-bike">
+            <a href="@System.Configuration.ConfigurationManager.AppSettings["Url1"]">
+                <img src="~/Images/Icon/new/BIKE_COCKPIT.gif" id="BIKE_Menu" class="CoreMenu b-fixed-object_BIKE">
+            </a>
+        </div>
+
+        <div class="c-entrace-rod">
+            <a href="@System.Configuration.ConfigurationManager.AppSettings["Url2"]">
+                <img src="~/Images/Icon/new/ROD_COCKPIT.gif" id="ROD_Menu" class="CoreMenu b-fixed-object_ROD">
+            </a>
+        </div>
+
+    </div>
+</div>
+
+@* End Content Body *@
+
+
+@* ==================================
+      Footer Fixed Position Component
+    =====================================*@
+
+<div class="width-100pc opacity-logo-shimano" data-toggle="modal" data-target="#">
+    @*<img src="~/Images/shimano-white-logo.png" class="c-fixed-object__shimano-logo c-main-logo" />*@
+    <img src="~/Assets/TXT-Closer to Nature/Asset 13.png" class="b-fixed-object_closetonature-logo b-main-logo">
+</div>
+
+<div style="display:none;">
+    <a href="https://shimano.freshservice.com/support/tickets/new" target="_blank"><img src="~/Assets/Home-Helpdesk Icon/Asset 4.png" class="b-fixed-object_helpdesk-logo"></a>
+</div>
+
+<!-- add freshchat by sufendi 07 Maret 2023 -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
+    <script src="https://shimano.freshchat.com/js/widget.js" async></script>
+    <script>
+        window.fcSettings = {
+            token: "78016be3-c449-4ff8-a856-b0a6779c793c",
+            host: "https://shimano.freshchat.com",
+            config: {
+				//fullscreen: true,
+                headerProperty: {
+				hideChatButton: true 
+                }
+            },
+            onInit: function () {
+                window.fcWidget.on("widget:closed",function () {
+                   show1();
+
+                });
+            }
+        };
+        function MouseEnterB(x) {
+            fcWidget.open();
+			document.querySelector('.list-container').classList.toggle('active');
+		}
+    </script>
+        <input type="image" style="margin-top: 23px; " src="~/Assets/HelpdeskLogo.svg" name="submit" alt="submit" onclick="MouseEnterB(this)" class="b-fixed-object_helpdesk-logo">
+    </div>

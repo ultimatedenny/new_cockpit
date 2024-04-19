@@ -1,0 +1,197 @@
+﻿/*===============================
+    Frame Border Corner
+  ===============================
+*/
+.c-corner-border {
+    &__box {
+        padding: 0.9rem;
+        border: 0.5rem solid $color-base;
+        position: relative;
+
+        @include nw(2500) {
+            padding: 1rem;
+            border: 1rem solid $color-base;
+        }
+
+        &:before {
+            top: -0.5rem;
+            bottom: -0.5rem;
+            left: 6rem;
+            right: 6rem;
+            content: "";
+            display: block;
+            position: absolute;
+            background: $color-base-black;
+
+            @include nw(2500) {
+                top: -1rem;
+                bottom: -1rem;
+                left: 10rem;
+                right: 10rem;
+            }
+        }
+
+        &:after {
+            left: -0.6rem;
+            right: -0.6rem;
+            top: 6rem;
+            bottom: 6rem;
+            content: "";
+            display: block;
+            position: absolute;
+            background: $color-base-black;
+
+            @include nw(2500) {
+                left: -1.1rem;
+                right: -1.1rem;
+                top: 10rem;
+                bottom: 10rem;
+            }
+        }
+    }
+
+    &__box-setting {
+        padding: 0.9rem;
+        border: 0.5rem solid $color-base;
+        position: relative;
+
+        @include nw(2500) {
+            padding: 1rem;
+            border: 1rem solid $color-base;
+        }
+
+        &:before {
+            top: -0.5rem;
+            bottom: -0.5rem;
+            left: 6rem;
+            right: 6rem;
+            content: "";
+            display: block;
+            position: absolute;
+            background: $color-base-black;
+
+            @include nw(2500) {
+                top: -1rem;
+                bottom: -1rem;
+                left: 10rem;
+                right: 10rem;
+            }
+        }
+
+        &:after {
+            left: -0.5rem;
+            right: -0.5rem;
+            top: 6rem;
+            bottom: 6rem;
+            content: "";
+            display: block;
+            position: absolute;
+            background: $color-base-black;
+
+            @include nw(2500) {
+                left: -1rem;
+                right: -1rem;
+                top: 10rem;
+                bottom: 10rem;
+            }
+        }
+    }
+
+    &__frame-list-application {
+        border: 0.4rem solid $color-base !important;
+        position: relative;
+        /*margin-bottom: 1.2vw;*/
+        outline: none;
+        padding: 0.8vw;
+        margin: 0.4vw 0 0.4vw 0 !important;
+
+        @include nw(2500) {
+            padding: 1.2rem;
+            border: 1.2rem solid $color-base !important;
+        }
+
+        &:before {
+            top: -2rem;
+            bottom: -2rem;
+            left: 3rem;
+            right: 3rem;
+            content: "";
+            display: block;
+            position: absolute;
+            background: $color-base-black;
+
+            @include nw(2500) {
+                top: -6rem;
+                bottom: -6rem;
+                left: 7rem;
+                right: 7rem;
+            }
+        }
+
+        &:after {
+            left: -2rem;
+            right: -2rem;
+            top: 3rem;
+            bottom: 3rem;
+            content: "";
+            display: block;
+            position: absolute;
+            background: $color-base-black;
+
+            @include nw(2500) {
+                left: -6rem;
+                right: -6rem;
+                top: 7rem;
+                bottom: 7rem;
+            }
+        }
+    }
+
+    &__content-list-application {
+        position: relative;
+        z-index: 1;
+        padding-bottom: 3%;
+    }
+
+    &__content {
+        border: 0.5rem solid $color-base;
+        position: relative;
+        z-index: 1;
+        padding-bottom: 5%;
+
+        @include nw(2500) {
+            border: 1rem solid $color-base;
+        }
+    }
+
+    &__content {
+        border: 0.5rem solid $color-base;
+        position: relative;
+        z-index: 1;
+        padding-bottom: 3%;
+
+        @include nw(2500) {
+            border: 1rem solid $color-base;
+        }
+    }
+
+    &__content-pilar {
+        border: 0.5rem solid $color-base;
+        position: relative;
+        z-index: 1;
+
+        @include nw(2500) {
+            border: 1rem solid $color-base;
+        }
+    }
+
+    &__content-iframe {
+        border: 0.5rem solid $color-base;
+        position: relative;
+        z-index: 1;
+
+        @include nw(2500) {
+            border: 1rem solid $color-base;
+        }
+    }
+}

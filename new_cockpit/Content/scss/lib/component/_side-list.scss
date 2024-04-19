@@ -1,0 +1,147 @@
+﻿/*===========================================
+    Side List Application & Dashboard Style
+  ===========================================
+*/
+.c-side-list {
+    &__wrapper-left {
+        width: 20%;
+        transform: translate(-50%,-50%);
+        top: 50%;
+        left: -100%;
+        position: fixed;
+        display: inline-flex;
+        padding-top: 1%;
+        padding-bottom: 1%;
+    }
+
+    &__wrapper-right {
+        width: 20%;
+        transform: translate(50%,-50%);
+        top: 50%;
+        right: -50%;
+        position: fixed;
+        display: inline-flex;
+        padding-top: 1%;
+        padding-bottom: 1%;
+    }
+
+    &__box-list-left {
+        width: 80%;
+        /*max-height: 33vw;*/
+        overflow: hidden;
+        background: $color-base-black;
+        margin-left: 5%;
+
+        @include nw(1919) {
+            /*max-height: 33vw;*/
+        }
+    }
+
+    &__box-list-right {
+        width: 80%;
+        /*max-height: 32vw;*/
+        overflow: hidden;
+        background: $color-base-black;
+        margin-right: 0%;
+
+        @include nw(1919) {
+            /*max-height: 36vw;*/
+        }
+    }
+
+    &__arrow-left {
+        transform: translate(50%,-50%);
+        position: absolute;
+        right: 0;
+        top: 50%;
+    }
+
+    &__arrow-right {
+        transform: translate(-150%,-50%);
+        position: absolute;
+        left: 0;
+        top: 50%;
+    }
+
+
+    &__item-name {
+        font-size: 1.2vw;
+        color: #fff;
+        text-align: center;
+        font-weight: 600;
+        margin-top: 0.5vw;
+    }
+
+    &__img-shadow {
+        -webkit-box-shadow: 0px 0px 12px 0 rgba(77,255,255,1);
+        -moz-box-shadow: 0px 0px 12px 0 rgba(77,255,255,1);
+        box-shadow: 0px 0px 12px 0 rgba(77,255,255,1);
+    }
+}
+
+
+.box:nth-of-type(odd) {
+    &:before, &:after {
+        display: block;
+        content: "";
+        width: 1.5vw;
+        height: 1.5vw;
+        position: absolute;
+    }
+
+    &:before {
+        border-top: 0.2vw solid $color-base;
+        border-right: 0.2vw solid $color-base;
+        right: 0.5vw;
+        top: 0.4vw;
+    }
+
+    &:after {
+        border-bottom: 0.2vw solid $color-base;
+        border-left: 0.2vw solid $color-base;
+        left: 0.5vw;
+        bottom: 0.5vw;
+    }
+}
+
+
+/*Dashboard List Style*/
+
+.box:nth-of-type(even) {
+    &:before, &:after {
+        display: block;
+        content: "";
+        width: 1.5vw;
+        height: 1.5vw;
+        position: absolute;
+    }
+
+    &:before {
+        border-top: 0.2vw solid $color-base;
+        border-left: 0.2vw solid $color-base;
+        left: 0.5vw;
+        top: 0.4vw;
+    }
+
+    &:after {
+        border-bottom: 0.2vw solid $color-base;
+        border-right: 0.2vw solid $color-base;
+        right: 0.5vw;
+        bottom: 0.5vw;
+    }
+}
+
+.box {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    box-sizing: content-box;
+    margin-bottom: 0.3vw;
+    outline: none;
+    margin: -5px !important;
+    padding: 20px;
+}

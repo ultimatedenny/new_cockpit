@@ -1,0 +1,123 @@
+﻿/*===========================================
+    Splash Loader Style
+  ===========================================
+*/
+.c-splash-loader {
+    &__box {
+        position: fixed;
+        width: 32%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &__circle-1 {
+        width: 100%;
+        height: auto;
+        animation: spin 3s linear infinite;
+        -webkit-animation: spin 3s linear infinite;
+        -moz-animation: spin 3s linear infinite;
+        -ms-animation: spin 3s linear infinite;
+        -o-animation: spin 3s linear infinite;
+    }
+
+    &__circle-2 {
+        width: 80%;
+        height: auto;
+        transform: translate(-50%, -50%);
+        top: 10%;
+        left: 10%;
+        animation: spinreverse 3s linear infinite;
+        -webkit-animation: spinreverse 3s linear infinite;
+        -moz-animation: spinreverse 3s linear infinite;
+        -ms-animation: spinreverse 3s linear infinite;
+        -o-animation: spinreverse 3s linear infinite;
+    }
+
+    &__circle-3 {
+        width: 46%;
+        height: auto;
+        transform: translate(-50%, -50%);
+        top: 27%;
+        left: 27%;
+        animation: spin 3s linear infinite;
+        -webkit-animation: spin 3s linear infinite;
+        -moz-animation: spin 3s linear infinite;
+        -ms-animation: spin 3s linear infinite;
+        -o-animation: spin 3s linear infinite;
+    }
+
+    &__lock {
+        width: 20%;
+        height: auto;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        animation: fade-in 5s ease-in-out infinite;
+        -webkit-animation: fade-in 5s ease-in-out infinite;
+        -moz-animation: fade-in 5s ease-in-out infinite;
+        -ms-animation: fade-in 5s ease-in-out infinite;
+        -o-animation: fade-in 5s ease-in-out infinite;
+    }
+
+    &--logo-shimano {
+        width: 20%;
+        height: auto;
+        opacity: 0.5;
+        position: fixed;
+        top: 8%;
+        left: 50%;
+        /* bring your own prefixes */
+        transform: translate(-50%, -50%);
+    }
+
+    &__tagline-mes-cockpit {
+        font-size: 2vw;
+        text-align: center;
+        color: $color-base;
+        position: fixed;
+        bottom:5%;
+        width:100%;
+    }
+}
+
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spinreverse {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+@-webkit-keyframes fade-in {
+    0% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 0.9;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 0.9;
+    }
+}

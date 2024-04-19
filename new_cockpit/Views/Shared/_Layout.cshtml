@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - SHIMANO MES Cockpit</title>
+
+    @* Main Css *@
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/main2.css" />
+    <link rel="stylesheet" href="~/Content/font-awesome.min.css">
+
+    @* Sidebar overlay *@
+    <link rel="stylesheet" type="text/css" href="~/Content/css/Sidebar/sidebar-overlay.css" />
+
+    @* Slider Slider *@
+    <link rel="stylesheet" type="text/css" href="~/Content/slick-theme.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/slick.css" />
+    <style>
+        * {
+            text-transform: uppercase !important;
+        }
+    </style>
+</head>
+<body id="layoutBody" onload="startTime()">
+    <!-- Body -->
+    <div>
+        <div class="hide-under-resolution">
+            @RenderBody()
+        </div>
+        <div class="message-under-resolution">
+            Best Resolution Above 1920 Pixel * 1080 Pixel
+        </div>
+    </div>
+
+
+    <script src="~/Scripts/jquery.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/bootstrap.js" type="text/javascript"></script>
+    <script src="~/Scripts/imagepreview.min.js" type="text/javascript"></script>
+
+    @* Search (Search Data on setting) *@
+    <script type="text/javascript" src="~/Scripts/search.js"></script>
+
+    @* Link To Main Page *@
+    <script type="text/javascript" src="~/Scripts/dashboard.js"></script>
+
+    @* Time for main page *@
+    <script type="text/javascript" src="~/Scripts/timer.js"></script>
+
+    @* Setting Modal (Data) *@
+    <script type="text/javascript" src="~/Scripts/setting.js"></script>
+
+    @* Sidebar Overlay (Sidebar List) *@
+    <script type="text/javascript" src="~/Scripts/sidebar-overlay.js"></script>
+
+    @* Slick Slider Side List *@
+    <script type="text/javascript" src="~/Scripts/slick.js"></script>
+
+
+    @* Custom Function *@
+    <script type="text/javascript">
+        $(window).load(function () {
+            //When rotate main loader
+            $(".c-main-loader-rotate").fadeIn(10000);
+            $(".c-main-loader-big").fadeIn(5000);
+        });
+
+        $(document).ready(function () {
+            $('.c-setting__btn-size-tab').click(function () {
+                $(this).parent().find('.c-setting__btn-size-tab.btn-base-tab-bg').removeClass('btn-base-tab-bg');
+                $(this).addClass('btn-base-tab-bg');
+            });
+
+
+            //Slide Left
+            $(".b-fixed-object_left-arrow").click(function () {
+                $("#leftSideNav").animate({ left: '10%' });
+            });
+
+            $(".btn-hide-list-left").click(function () {
+                $("#leftSideNav").animate({ left: '-100%' });
+            });
+
+            //Slide Right
+            $(".btn-show-list-right").click(function () {
+                /*$("#rightSideNav").animate({ right: '6.5%' }); //right: '6.5%'*/
+                data - toggle="modal" data - target="#myModal2"
+            });
+
+            $(".btn-hide-list-right").click(function () {
+                $("#rightSideNav").animate({ right: '-50%' }); // right: -50%
+            });
+
+
+            //Function Slick Slider Dashboard (Vertical Mouse Wheel)
+            var $sliderapp = $("#slider-list-application");
+            var $sliderdash = $("#slider-list-dashboard");
+
+
+            $sliderapp.on('init', function () {
+                mouseWheelApp($sliderapp);
+            }).slick({
+                arrows: false,
+                dots: false,
+                vertical: true,
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                verticalSwiping: true,
+                swipeToSlide: true, //penambahan bejo
+                speed: 60
+            });
+
+            //bejo tambahin
+
+
+
+            $sliderdash.on('init', function () {
+                mouseWheelDash($sliderdash);
+            }).slick({
+                arrows: false,
+                dots: false,
+                vertical: true,
+                infinite: true,
+                slidesToShow: 3, //4
+                slidesToScroll: 3,
+                verticalSwiping: true,
+                swipeToSlide: true, //penambahan bejo
+                speed: 60
+
+            });
+
+
+
+            function mouseWheelApp($sliderapp) {
+                $('#leftSideNav').on('wheel', {
+                    $sliderapp: $sliderapp
+                }, mouseWheelHandlerApp);
+            }
+
+
+
+            function mouseWheelDash($sliderdash) { //$sliderdash
+                $('#rightSideNav').on('wheel', {
+                    $sliderdash: $sliderdash
+                }, mouseWheelHandlerDash);
+            }
+
+            function mouseWheelHandlerApp(event) {
+                event.preventDefault();
+                var $sliderapp = event.data.$sliderapp;
+                var delta = event.originalEvent.deltaY;
+
+                if (delta > 0) {
+                    $sliderapp.slick('slickPrev');
+                } else {
+                    $sliderapp.slick('slickNext');
+                }
+            }
+
+            function mouseWheelHandlerDash(event) {
+                event.preventDefault();
+                var $sliderdash = event.data.$sliderdash;
+                var delta = event.originalEvent.deltaY;
+
+                if (delta > 0) {
+                    $sliderdash.slick('slickPrev');
+                } else {
+                    $sliderdash.slick('slickNext');
+                }
+            }
+        });
+
+
+        $('#list-displayed-dashboard, #list-dashboard-set, #list-displayed-application, #list-application-set').on('click', 'li', function () {
+            $(this).toggleClass('color-white');
+        });
+
+
+        //Arrow Dashboard
+        $('#move_left').click(function () {
+            $('#list-displayed-dashboard').append($('#list-dashboard-set .color-white').removeClass('color-white'));
+        });
+
+        $('#move_right').click(function () {
+            $('#list-dashboard-set').append($('#list-displayed-dashboard .color-white').removeClass('color-white'));
+        });
+
+
+        //Arrow Application
+        $('#move_left_two').click(function () {
+            $('#list-displayed-application').append($('#list-application-set .color-white ').removeClass('color-white'));
+        });
+
+        $('#move_right_two').click(function () {
+            $('#list-application-set').append($('#list-displayed-application .color-white').removeClass('color-white'));
+        });
+
+        $('.preview').anarchytip();
+
+
+        $(function () {
+            $('.box').on("click", function () {
+                $('.c-main-loader-big').addClass("cssClass");
+                setTimeout(RemoveClass1, 2000);
+            });
+            function RemoveClass1() {
+                $('.c-main-loader-big').removeClass("cssClass");
+                $('#rightSideNavModal').data("hidden", false);
+            }
+
+            $('#btn-login').on("click", function () {
+                $('.c-main-loader-big').addClass("cssClass");
+                closeModalOverlay();
+                setTimeout(RemoveClass2, 2000);
+            });
+            function RemoveClass2() {
+                $('.c-main-loader-big').removeClass("cssClass");
+                $('#myModallogin').modal('show');
+            }
+
+            $('#btn-setting').on("click", function () {
+                $('.c-main-loader-big').addClass("cssClass");
+                closeModalOverlay();
+                setTimeout(RemoveClass3, 2000);
+            });
+            function RemoveClass3() {
+                $('.c-main-loader-big').removeClass("cssClass");
+                $('#rightSideNavModal').data("hidden", true);
+                $('#myModalsetting').modal('show');
+            }
+        });
+
+
+        $('#maximizes').on("click", function () {
+            var currentUrl = document.getElementById("rightIFrame").src;
+            document.getElementById('rightIFrameMaximize').src = currentUrl;
+        });
+
+        $('#closeFullscreen').on("click", function () {
+            closeMaximizeModalOverlay();
+        });
+
+    </script>
+    <script src="~/Scripts/jquery.min.js" type="text/javascript"></script>
+
+    <script>
+        $(document).ready(function () {
+        var SystemServer = '@System.Configuration.ConfigurationManager.AppSettings["SystemServer"]'.toUpperCase();
+                if (SystemServer.includes("QA") || SystemServer.includes("TEST")) {
+                    $("#layoutBody").removeClass();
+                    $("#layoutBody").addClass("bg-color-QA");
+                } else {
+                    $("#layoutBody").removeClass();
+                    $("#layoutBody").addClass("bg-color-PRD");
+                }
+            console.log(SystemServer)
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+﻿/*===============================
+    Animation Fade In Object
+  ===============================
+*/
+
+/*Splash Animation*/
+.c-splash-logo {
+    opacity: 0;
+    -webkit-animation: fadeIn 1s ease-in-out 0s forwards;
+    animation: fadeIn 1s ease-in-out 0s forwards;
+    -webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+}
+
+.c-splash-mes {
+    opacity: 0;
+    -webkit-animation: fadeIn 1s ease-in-out 0s forwards;
+    animation: fadeIn 1s ease-in-out 0s forwards;
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+}
+
+.c-splash-loader {
+    opacity: 0;
+    -webkit-animation: fadeIn 1s ease-in-out 0s forwards;
+    animation: fadeIn 1s ease-in-out 0s forwards;
+    -webkit-animation-delay: 2;
+    animation-delay: 2s;
+}
+
+
+/*Main Animation*/
+.c-main-loader-thin {
+    opacity: 0;
+    -webkit-animation: fadeIn 1s ease-in-out 0s forwards;
+    animation: fadeIn 1s ease-in-out 0s forwards;
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+}
+
+.c-main-logo {
+    opacity: 0;
+    -webkit-animation: fadeIn 1s ease-in-out 0s forwards;
+    animation: fadeIn 1s ease-in-out 0s forwards;
+    -webkit-animation-delay: 2.5s;
+    animation-delay: 2.5s;
+}
+
+.c-main-qms {
+    opacity: 0;
+    -webkit-animation: fadeIn 1s ease-in-out 0s forwards;
+    animation: fadeIn 1s ease-in-out 0s forwards;
+    -webkit-animation-delay: 3s;
+    animation-delay: 3s;
+}
+
+.c-main-oms {
+    opacity: 0;
+    -webkit-animation: fadeIn 1s ease-in-out 0s forwards;
+    animation: fadeIn 1s ease-in-out 0s forwards;
+    -webkit-animation-delay: 3.5s;
+    animation-delay: 3.5s;
+}
+
+
+.c-main-mms {
+    opacity: 0;
+    -webkit-animation: fadeIn 1s ease-in-out 0s forwards;
+    animation: fadeIn 1s ease-in-out 0s forwards;
+    -webkit-animation-delay: 4s;
+    animation-delay: 4s;
+}
+
+.c-main-scms {
+    opacity: 0;
+    -webkit-animation: fadeIn 1s ease-in-out 0s forwards;
+    animation: fadeIn 1s ease-in-out 0s forwards;
+    -webkit-animation-delay: 4.5s;
+    animation-delay: 4.5s;
+}
+
+.c-main-all {
+    opacity: 0;
+    -webkit-animation: fadeIn 1s ease-in-out 0s forwards;
+    animation: fadeIn 1s ease-in-out 0s forwards;
+    -webkit-animation-delay: 5s;
+    animation-delay: 5s;
+}
+
+.c-main-running-text {
+    opacity: 0;
+    -webkit-animation: fadeIn 1s ease-in-out 0s forwards;
+    animation: fadeIn 1s ease-in-out 0s forwards;
+    -webkit-animation-delay: 5.5s;
+    animation-delay: 5.5s;
+}
+
+
+
+/* defines the animation */
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@-o-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-ms-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

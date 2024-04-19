@@ -1,0 +1,29 @@
+﻿/*===========================================
+    Helper Text Style
+  ===========================================
+*/
+.h-text {
+    &__hi-guest {
+        color: $color-base;
+        font-size: 2vw;
+        text-align: left;
+    }
+
+    &__closer {
+        color: $color-base;
+        font-size: 2vw;
+        text-align: center;
+    }
+
+    &__date-time-header {
+        color: $color-base;
+        font-size: 2vw;
+        text-align: right;
+    }
+
+    &__special-date {
+        font-size: 1vw;
+    }
+
+    
+}

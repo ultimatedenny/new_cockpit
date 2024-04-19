@@ -1,0 +1,44 @@
+﻿/*===============================
+    Half Preview In Frame Style
+  ===============================
+*/
+.c-half-preview {
+    &__box {
+        position: fixed;
+        top: 50%;
+        z-index: 89;
+        left: 39%;
+        transform: translate(-50%, -50%);
+    }
+
+    &__spaceWrap {
+        width: 75vw;
+        height: auto;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    &__viewPort {
+        width: 77vw;
+        height: 33vw;
+        border: 1px solid black;
+    }
+
+    &__position-btn-close {
+        position: absolute;
+        z-index: 9999;
+        right: -1vw;
+        top: -1vw;
+    }
+
+    &__position-btn-maximize {
+        position: absolute;
+        z-index: 9999;
+        right: -1vw;
+        bottom: -1vw;
+        transform: rotate(50deg);
+        -webkit-transform: rotate(50deg);
+        -moz-transform: rotate(50deg);
+        -ms-transform: rotate(50deg);
+    }
+}

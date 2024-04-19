@@ -1,0 +1,1183 @@
+﻿@model new_cockpit.Models.Dashboard
+
+@{
+    ViewBag.Title = "Main";
+}
+
+
+@* ========================
+     Main Header
+    =========================*@
+
+
+<script>
+    function ShowLoading(isView, text) {
+        if (isView) {
+            $("#labelLoading").html(text + "<br><br><small>Please wait untill finish..</small>")
+            $("#modalLoading").modal({
+                backdrop: "static", //remove ability to close modal with click
+                keyboard: false, //remove option to close with keyboard
+                show: true //Display loader!
+            });
+        }
+        else {
+            $("#modalLoading").modal("hide");
+            //toastr.success("Update " + text + " Successfully", "Success");
+        }
+    }
+</script>
+
+<div class="modal fade" id="modalLoading" tabindex="-1" role="dialog" aria-labelledby="loadMeLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="loader"></div>
+                <div clas="loader-txt">
+                    <p id="labelLoading">Please wait untill finish...</p>
+                </div>
+                <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+
+    .dropbtn {
+        background-color: #3498DB;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+        .dropbtn:hover, .dropbtn:focus {
+            background-color: #2980B9;
+        }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: black;
+        min-width: 160px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+        .dropdown-content a {
+            color: #4DFFFF;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+    .dropdown a:hover {
+        background-color: transparent;
+    }
+
+    .show {
+        display: block;
+    }
+
+    .carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {
+        max-width: 85%;
+    }
+
+</style>
+<script>
+    function myDropDownList() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+</script>
+<div class="row margin-t-2-vw c-main-all">
+    <div class="padding-lr-1-pc">
+
+
+        <div class="col-lg-3 col-md-3">
+
+            <div class="b-text__date-time-header">
+                <div class="b-text__special-date">@Model.SystemEnvironment</div>
+
+                <div id="currentDateTime" class="b-text__special-date"></div>
+                <div id="timerText" style="font-family:Calibri;"></div>
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-6 col-md-6">
+            <div>
+                <img src="~/Assets/Logo/Asset 31.png" onclick="shakemenu();" class="b-fixed-object_shimano-logo">
+            </div>
+        </div>
+
+
+
+
+
+        <div class="col-lg-3 col-md-3">
+            <div>
+                <img src="~/Assets/Home-Side Menu Icon/Asset 6.png" class="b-fixed-object_menu-logo" data-toggle="modal" data-target="#RightMenuModal">
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+@* End Main Header *@
+
+@* ========================
+    Content Body
+    ========================*@
+
+<div class="row">
+    <div class="padding-lr-2-pc">
+
+        @* Arrow side Application *@
+        @*<div class="col-lg-3 col-md-3 width-25pc c-main-all">
+            <div class="btn-show-list-left opacity-btn">
+                <div class="c-btn-circle__box">
+                    <div class="c-btn-circle__box-icon">
+                        <div class="c-btn-circle__icon">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+        <script>
+
+            function shakemenu() {
+                $("#QMS_Menu").addClass("animate-QMS");
+                $("#OMS_Menu").addClass("animate-OMS");
+                $("#MMS_Menu").addClass("animate-MMS");
+                $("#SCMS_Menu").addClass("animate-SCMS");
+            }
+
+
+            function clickRightArrow() {
+                document.getElementById("rightsearch").value = '';
+                searchRightModal();
+
+
+            }
+            function clickLeftArrow() {
+                document.getElementById("leftsearch").value = '';
+                searchLeftModal();
+
+            }
+        </script>
+
+        <div>
+            <img src="~/Assets/Home-Icon-Right Arrow/Asset 19.png" class="b-fixed-object_left-arrow" data-toggle="modal" data-target="#LeftModal" onclick="clickLeftArrow();">
+        </div>
+        <div>
+            <img src="~/Assets/Home-Icon-Left Arrow/Asset 18.png" class="b-fixed-object_right-arrow" data-toggle="modal" data-target="#RightModal" onclick="clickRightArrow();">
+        </div>
+
+
+        @* Center Content Body by Bondra *@
+
+        <div class="c-entrace-line">
+            <div class="border-animated"></div>
+        </div>
+
+        @*<div class="b-text_environment_header">
+            <label class="EnviromnetLabel">@Model.SystemEnvironment</label>
+        </div>*@
+
+        <div class="c-entrace-qms">
+            <img src="~/Assets/Menu-QMS/Menu-QMS.gif" id="QMS_Menu" class="CoreMenu b-fixed-object_QMS" data-toggle="modal" data-target="#ModalQMS">
+        </div>
+        <div class="c-entrace-oms">
+            <img src="~/Assets/Menu-OMS/Menu-OMS.gif" id="OMS_Menu" class="CoreMenu b-fixed-object_OMS" data-toggle="modal" data-target="#ModalOMS">
+        </div>
+        <div class="c-entrace-mms">
+            <img src="~/Assets/Menu-MMS/Menu-MMS.gif" id="MMS_Menu" class="CoreMenu b-fixed-object_MMS" data-toggle="modal" data-target="#ModalMMS">
+        </div>
+        <div class="c-entrace-scms">
+            <img src="~/Assets/Menu-SCMS/Menu-SCMS.gif" id="SCMS_Menu" class="CoreMenu b-fixed-object_SCMS" data-toggle="modal" data-target="#ModalSCMS">
+        </div>
+
+
+
+
+    </div>
+</div>
+
+@* End Content Body *@
+
+
+
+@* Side List *@
+<div>
+    @* Application List *@
+    <div id="leftSideNav" class="c-side-list__wrapper-left">
+        <div class="c-side-list__box-list-left">
+            <div class="slider" id="slider-list-application">
+                @foreach (var item in Model.LeftSideData)
+                {
+                    <div class="c-corner-border__frame-list-application">
+                        <div class="c-corner-border__content-list-application">
+                            <a href="@item.Url" target="@item.Target" class="no-underline">
+                                <div>
+                                    <img src="@item.ImageUrl" style="height:50%;width:50%; " class="img-responsive position-c " />
+                                </div>
+                                <div class="c-side-list__item-name">
+                                    @item.Name
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="c-side-list__arrow-left btn-hide-list-left">
+            <div class="c-btn-circle__box">
+                <div class="c-btn-circle__box-icon">
+                    <div class="c-btn-circle__icon">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @* Dashboard List *@
+    <div id="rightSideNav" class="c-side-list__wrapper-right">
+        <div class="c-side-list__arrow-right btn-hide-list-right">
+            <div class="c-btn-circle__box">
+                <div class="c-btn-circle__box-icon">
+                    <div class="c-btn-circle__icon">
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="c-side-list__box-list-right">
+            <div class="<div>slider</div>" id="slider-list-dashboard">
+                @foreach (var item in Model.RightSideData)
+                {
+                    <div class="c-corner-border__frame-list-application">
+                        <div class="c-corner-border__content-list-application">
+                            <a href="@item.Url" target="@item.Target" class="no-underline">
+                                <div>
+                                    <a href="#" onclick="openRightSideNavModal(@item.Id, '@item.Url');f1();">
+                                        <img src="@item.ImageUrl" style="height:50%;width:50%; margin: 0 auto;" class="img-responsive" />
+                                    </a>
+                                </div>
+                                <div class="c-side-list__item-name">
+                                    @item.Name
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <!--
+                        <div class="box">
+                        <a href="#" onclick="openRightSideNavModal(@item.Id, '@item.Url')">
+                            <img src="@item.ImageUrl" style="height:198px;width:198px; " class="width-100pc img-responsive c-side-list__img-shadow" />
+                        </a>
+                    </div>
+                    -->
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@* End Side List *@
+
+@* Half Preview Dashboard *@
+<div id="rightSideNavModal" hidden="hidden" class="c-half-preview__box">
+    <div>
+        <div class="c-half-preview__position-btn-close" onclick="closeModalOverlay()">
+            <div class="c-btn-circle__box-close-iframe">
+                <div class="c-btn-circle__box-icon">
+                    <div class="c-btn-circle__icon-close-iframe">
+                        <span>
+                            <i class="fas fa-times"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="c-corner-border__box2">
+            <div class="c-corner-border__content-iframe">
+                <div class="c-half-preview__spaceWrap">
+                    <iframe id="rightIFrame" class="c-half-preview__viewPort"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="c-half-preview__position-btn-maximize" id="maximizes" data-toggle="modal" data-target="#modal-maximize">
+            <div class="c-btn-circle__box-maximize">
+                <div class="c-btn-circle__box-icon">
+                    <div class="c-btn-circle__icon-maximize">
+                        <span>
+                            <i class="fas fa-arrows-alt-v"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @* ini tab kecil *@
+        <div class="c-half-preview__position-btn-maximize2" id="newtab">
+            <div class="c-btn-circle__box-maximize2">
+                <div class="c-btn-circle__box-icon">
+                    <div class="c-btn-circle__icon-maximize">
+                        <span>
+                            <a href="#" id="newtabkecil" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+@* End Half Preview *@
+
+
+
+
+@* ==================================
+      Footer Fixed Position Component
+    =====================================*@
+
+<div class="width-100pc opacity-logo-shimano" data-toggle="modal" data-target="#">
+    @*<img src="~/Images/shimano-white-logo.png" class="c-fixed-object__shimano-logo c-main-logo" />*@
+    <img src="~/Assets/TXT-Closer to Nature/Asset 13.png" class="b-fixed-object_closetonature-logo b-main-logo">
+</div>
+
+<div style="display:none;">
+    <a href="https://shimano.freshservice.com/support/tickets/new" target="_blank"><img src="~/Assets/Home-Helpdesk Icon/Asset 4.png" class="b-fixed-object_helpdesk-logo"></a>
+</div>
+
+<!-- add freshchat by sufendi 07 Maret 2023 -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
+    <script src="https://shimano.freshchat.com/js/widget.js" async></script>
+    <script>
+        window.fcSettings = {
+            token: "78016be3-c449-4ff8-a856-b0a6779c793c",
+            host: "https://shimano.freshchat.com",
+            config: {
+				//fullscreen: true,
+                headerProperty: {
+				hideChatButton: true 
+                }
+            },
+            onInit: function () {
+                window.fcWidget.on("widget:closed",function () {
+                   show1();
+
+                });
+            }
+        };
+        function MouseEnterB(x) {
+            fcWidget.open();
+			document.querySelector('.list-container').classList.toggle('active');
+		}
+    </script>
+        <input type="image" style="margin-top: 23px; " src="~/Assets/HelpdeskLogo.svg" name="submit" alt="submit" onclick="MouseEnterB(this)" class="b-fixed-object_helpdesk-logo">
+    </div>
+
+@* ==================================
+      MODAL on Main Page
+    =====================================*@
+<!-- Modal Maximize Preview Screen-->
+<!-- Modal Maximize Overlays -->
+<script>
+    function f1() {
+        var url = document.getElementById("rightIFrame").src;
+        document.getElementById("maxNewTab").href = url;
+        document.getElementById("newtabkecil").href = url;
+        console.log(url);
+
+    }
+</script>
+<div id="modal-maximize" class="modal fade" role="dialog">
+    <div class="modal-dialog c-full-preview__modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content c-full-preview__model-content">
+
+            <div class="c-corner-border__box">
+                <div class="c-corner-border__content-iframe">
+                    <div class="c-full-preview__spaceWrapMax">
+                        <iframe id="rightIFrameMaximize" class="c-full-preview__viewPortMax"></iframe>
+                    </div>
+                </div>
+            </div>
+            @* new tab Button *@
+            @*<a href="#" id="maxNewTab" target="_blank">
+                    <div class="c-half-preview__position-btn-maximize3" id="newtab">
+                        <div class="c-btn-circle__box-maximize2">
+                            <div class="c-btn-circle__box-icon">
+                                <div class="c-btn-circle__icon-maximize2">
+                                    <span>
+                                        <i class="far fa-door-open"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>*@
+            <a href="#" id="maxNewTab" target="_blank">
+                <div class="c-half-preview__position-btn-maximize3" id="newtab">
+                    <div class="c-btn-circle__box-maximize2">
+                        <div class="c-btn-circle__box-icon">
+                            <div class="c-btn-circle__icon-maximize2">
+                                <span>
+                                    <i class="fas fa-external-link-alt"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            @* Minimize Button *@
+            <div class="c-full-preview__position-btn-minimize" data-dismiss="modal">
+                <div class="c-btn-circle__box-maximize">
+                    <div class="c-btn-circle__box-icon">
+                        <div class="c-btn-circle__icon-maximize">
+                            <span>
+                                <i class="fas fa-arrows-alt-v"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @* Close Button *@
+            <div class="c-full-preview__position-btn-close" data-dismiss="modal" id="closeFullscreen">
+                <div class="c-btn-circle__box-close-iframe">
+                    <div class="c-btn-circle__box-icon">
+                        <div class="c-btn-circle__icon-close-iframe">
+                            <span>
+                                <i class="fas fa-times"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+    function onSuccess(data) {
+        if (data.isSuccess) {
+            //showMyTask();
+            alert(data.message);
+        } else {
+            alert(data.message);
+        }
+
+    }
+
+    function onFailure(data) {
+        alert(data.message);
+    }
+
+
+
+    function Login() {
+        ShowLoading(true, "trying to login");
+        var UserId = document.getElementById("tbUserID").value;
+        var Password = document.getElementById("tbPassword").value;
+        $.ajax({
+            url: "@Url.Action("LoginUser", "Main")",
+            dataType: "json",
+            data: {
+                UserId: UserId,
+                Password: Password
+            },
+            success: function (response) {
+                ShowLoading(false,"");
+                if (response.isSuccess) {
+                    alert(response.message);
+                    location.reload();
+                } else {
+                    // DoSomethingElse()
+                    alert(response.message);
+                }
+            },
+            error: function (response) {
+                ShowLoading(false, "");
+                alert("error!");  //
+            }
+        });
+    }
+</script>
+
+<!-- NEW QMS Modal -->
+<div>
+    <div id="ModalQMS" class="modal fade">
+        <div>
+            <img src="~/Assets/All Menu-Shape/QMS.png" class="b-bg-modal-new">
+        </div>
+        <div>
+            <img src="~/Assets/All Menu-Close/Asset 2@2x.png" class="btnClose" data-dismiss="modal">
+        </div>
+
+        <div class="c-pilar__content-list modal-size">
+            @Html.Raw(Model.QMS_Menu)
+        </div>
+    </div>
+</div>
+
+<!-- NEW OMS Modal -->
+<div>
+    <div id="ModalOMS" class="modal fade">
+        <div>
+            <img src="~/Assets/All Menu-Shape/OMS.png" class="b-bg-modal-new">
+        </div>
+        <div>
+            <img src="~/Assets/All Menu-Close/Asset 2@2x.png" class="btnClose" data-dismiss="modal">
+        </div>
+
+        <div class="c-pilar__content-list modal-size">
+            @Html.Raw(Model.OMS_Menu)
+        </div>
+    </div>
+</div>
+
+<!-- NEW MMS Modal -->
+<div>
+    <div id="ModalMMS" class="modal fade">
+        <div>
+            <img src="~/Assets/All Menu-Shape/MMS.png" class="b-bg-modal-new">
+        </div>
+        <div>
+            <img src="~/Assets/All Menu-Close/Asset 2@2x.png" class="btnClose" data-dismiss="modal">
+        </div>
+
+        <div class="c-pilar__content-list modal-size">
+            @Html.Raw(Model.MMS_Menu)
+        </div>
+    </div>
+</div>
+
+<!-- NEW SCMS Modal -->
+<div>
+    <div id="ModalSCMS" class="modal fade">
+        <div>
+            <img src="~/Assets/All Menu-Shape/SCMS.png" class="b-bg-modal-new">
+        </div>
+        <div>
+            <img src="~/Assets/All Menu-Close/Asset 2@2x.png" class="btnClose" data-dismiss="modal">
+        </div>
+
+        <div class="c-pilar__content-list modal-size">
+            @Html.Raw(Model.SCMS_Menu)
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal Right -->
+<script>
+    function searchRightModal() {
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById("rightsearch");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("rightUL");
+        li = ul.getElementsByTagName("li");
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
+
+</script>
+<div class="modal right fade d-flex flex-column flex-shrink-0 mb-auto p-3" id="RightModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <a href="/" class="right-header mb-md-0">
+                <img src="~/Images/RightSideNav/PNG/Dashboard.png" style="width:12%;" />
+                <span style="font-size: 3rem; color: #2091ce; box-sizing: border-box; text-decoration: none !important; font-family: Arial; margin-left: 5px;">Dashboard</span>
+            </a>
+            <hr style="margin-top:5px;margin-bottom:10px;">
+            <div class="form-group">
+                <input type="text" id="rightsearch" onkeyup="searchRightModal()" class="form-control" placeholder="Search">
+            </div>
+
+            <ul id="rightUL" class="nav nav-pills flex-column mb-auto">
+
+
+                @foreach (var item in Model.RightSideData)
+                {
+
+                    <li style="width:100%" onclick="openRightSideNavModal(@item.Id, '@item.Url');f1();" data-dismiss="modal">
+                        @*<a href="@item.Url" target="@item.Target" class="b-sidebar-item" style="color: #000305;">*@
+
+                        <div>
+                            <a href="#">
+                                <img src="@item.ImageUrl" class="righticon" /><label style="margin-left:10px;">@item.Name.ToUpper()</label>
+                            </a>
+                        </div>
+
+                        @*</a>*@
+                    </li>
+
+
+
+                }
+
+
+
+            </ul>
+
+
+        </div><!-- modal-content -->
+    </div><!-- modal-dialog -->
+</div><!-- modal right-->
+<!-- Modal left -->
+<script>
+    function searchLeftModal() {
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById("leftsearch");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("leftUL");
+        li = ul.getElementsByTagName("li");
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
+
+</script>
+<div class="modal left fade d-flex flex-column flex-shrink-0 mb-auto p-3" id="LeftModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <a href="/" class="right-header mb-md-0">
+                <img src="~/Images/Icon/new/Applicaton.png" style="width:12%;" />
+                <span style="font-size: 3rem; color: #2091ce; box-sizing: border-box; text-decoration: none !important; font-family: Arial;margin-left:5px;">Application</span>
+            </a>
+            <hr style="margin-top:5px;margin-bottom:10px;">
+
+            <div class="form-group">
+                <input type="text" id="leftsearch" onkeyup="searchLeftModal()" class="form-control" placeholder="Search">
+            </div>
+
+
+            <ul id="leftUL" class="nav nav-pills flex-column mb-auto">
+
+
+                @foreach (var item in Model.LeftSideData)
+                {
+
+                    <li style="width:100%">
+                        @*<a href="@item.Url" target="@item.Target" class="b-sidebar-item" style="color: #000305;">*@
+
+                        <div>
+                            <a href="@item.Url" target="@item.Target">
+                                <img src="@item.ImageUrl" class="righticon" /><label style="margin-left:10px;">@item.Name.ToUpper()</label>
+                            </a>
+                        </div>
+
+                        @*</a>*@
+                    </li>
+
+
+
+                }
+
+
+
+            </ul>
+
+
+        </div><!-- modal-content -->
+    </div><!-- modal-dialog -->
+</div><!-- modal left-->
+
+
+<script>
+    function Logout() {
+        window.location = "./Main/LogOut?Length=4";
+    }
+</script>
+
+<!-- Modal menu Right -->
+<div class="modal right fade d-flex flex-column flex-shrink-0 mb-auto p-3" id="RightMenuModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <ul class="nav nav-pills flex-column mb-auto">
+
+                @if (Session["UserName"] != null && Session["UserName"].ToString() != "GUEST")
+                {
+                    <li style="width:100%" onclick="Logout();">
+                        <div>
+                            <a href="#">
+                                <img src="~/Assets/Home-Side Menu-Sign In Icon/Asset 8@4x.png" class="rightmenuicon" />
+                                <label id="lblSignIn" style="margin-left:10px;">SIGN OUT (<span style="color: darkorange; font-style: italic;">@Session["UserName"].ToString().ToUpper()</span>)</label>
+                            </a>
+                        </div>
+                    </li>
+                }
+                else
+                {
+                    <li style="width:100%" data-toggle="modal" data-target="#myModallogin">
+                        <div>
+                            <a href="#">
+                                <img src="~/Assets/Home-Side Menu-Sign In Icon/Asset 8@4x.png" class="rightmenuicon" />
+                                <label id="lblSignIn" style="margin-left:10px;">SIGN IN</label>
+                            </a>
+                        </div>
+                    </li>
+                }
+
+                <li style="width:100%" data-toggle="modal" data-target="#myModalsetting">
+                    <div>
+                        <a href="#">
+                            <img src="~/Assets/Home-Side Menu-Settings Icon/Asset 11@4x.png" class="rightmenuicon" /><label style="margin-left:10px;">SETTING</label>
+                        </a>
+                    </div>
+                </li>
+
+
+
+            </ul>
+
+
+        </div><!-- modal-content -->
+    </div><!-- modal-dialog -->
+</div><!-- modal menu right-->
+<!-- Modal Login -->
+<div class="modal fade c-login__fade--in c-login__modal-open c-login__modal-open--modal" id="myModallogin" role="dialog">
+    <div class="modal-dialog c-login__modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content bg-color-transparent">
+            <div class="modal-body bg-color-transparent">
+                <div class="c-corner-border__box">
+                    <div class="c-corner-border__content">
+
+                        @*@using (Html.BeginForm("Index", "Main", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))*@
+
+                        @*@using (Ajax.BeginForm("Index", "Main", null,
+                                new AjaxOptions
+                                {
+                                    OnSuccess = "onSuccess",
+                                    OnFailure = "onFailure",
+                                    OnBegin = "onProgress",
+
+                                }, new { @id = "idCheckUser" }))
+                            {*@
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="~/Images/icon-header-login.png" class="c-login__icon-header" />
+                            </div>
+
+                            <div class="col-md-12 c-login--padding-box-input">
+                                <div class="c-login__box-icon-input">
+                                    <img src="~/Images/ic_username.png" class="c-login--icon-size-input c-login__position-icon-input c-login__left-icon-input" />
+                                </div>
+                                @*@Html.TextBoxFor(m => m.UseID, new { autofocus = "autofocus", placeholder = "Username", @class = "c-login__input c-login__position-left-input" })*@
+                                <input type="text" id="tbUserID" autofocus placeholder="Username" class="c-login__input c-login__position-left-input" />
+                            </div>
+
+                            <div class="col-md-12 c-login--padding-box-input c-login--mrg-top-input">
+                                <div class="c-login__box-icon-input">
+                                    <img src="~/Images/ic_lock_password.png" class="c-login--icon-size-input c-login__position-icon-input c-login__left-icon-input" />
+                                </div>
+                                @*@Html.TextBoxFor(m => m.UsePass, new { placeholder = "Password", @class = "c-login__input c-login__position-left-input", @type = "password" })*@
+                                <input type="password" id="tbPassword" autofocus placeholder="Password" class="c-login__input c-login__position-left-input" />
+                            </div>
+
+                            <div class="col-md-12 c-login--mrg-top-input c-login--padding-box-btn-login">
+                                <div class="text-center">
+                                    <input type="button" onclick="Login();" value="Sign In" class="btn-base-bg c-login__btn-login btn-block" />
+                                    @*<a href="#" class="btn-base-bg c-login__btn-login btn-block">Sign In</a>*@
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 c-login--mrg-top-input c-login--padding-box-btn-login">
+                                <div class="text-center">
+                                    @*<a href="#" class="c-login--lbl-forgot">Forgot Password ?</a>*@
+                                </div>
+                            </div>
+
+                        </div>
+
+                        @*}*@
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Modal Setting -->
+<div class="modal fade c-setting__fade--in c-setting__modal-open c-setting__modal-open--modal" id="myModalsetting" role="dialog">
+    <div class="c-setting__box-center-modal">
+        <div class="modal-dialog c-setting__modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content bg-color-transparent">
+                <div class="modal-body bg-color-transparent">
+                    <div class="row c-setting__mrg-bottom-tab">
+                        <div class="col-md-12">
+                            <div class="text-center">
+                                <a href="#Dashboard" data-toggle="tab" class="c-setting__btn-size-tab btn-base-tab-brd btn-base-tab-bg">DASHBOARD</a>
+                                <a href="#Application" data-toggle="tab" class="c-setting__btn-size-tab btn-base-tab-brd">APPLICATION</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-corner-border__box-setting">
+                        <div class="c-corner-border__content c-setting__box-content-tab">
+                            <div class="tab-content">
+                                @* =========================
+                                      Content Dashboard
+                                    ==========================*@
+                                <div class="tab-pane active" id="Dashboard">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12">
+                                            <div class="c-setting--title-pillar">
+                                                @*OMS <span class="c-setting--subtitle-pillar">Operations</span>*@
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row margin-t-1-vw">
+                                        @* Display Dashboard *@
+                                        <div class="col-lg-5 col-md-5 c-setting__width-box-list">
+                                            <div class="c-setting__box-list">
+                                                <div class="c-setting__header-list">
+                                                    Displayed Dashboard
+                                                </div>
+
+                                                <div class="c-setting__scroll-box-list">
+                                                    <div class="c-setting--mrg-top-input">
+                                                        <div class="c-setting__box-icon-input">
+                                                            <img src="~/Images/ic-search.png" class="c-setting--icon-size-input c-setting__position-icon-input c-setting__right-icon-input" />
+                                                        </div>
+                                                        <input type="text" id="inputDashboard" onkeyup="searchDashboard()" placeholder="Search Dashboard..." class="c-setting__input c-setting__position-right-input" />
+                                                    </div>
+                                                    <ul id="list-displayed-dashboard" class="c-setting__list-displayed">
+                                                        @foreach (var item in Model.ListDashboard)
+                                                        {
+                                                            <li data-value="@item.Id">
+                                                                @item.Name
+                                                                <a href="~/Images/shimano-white-logo.png" class="preview pull-right"><i class="fas fa-eye"></i></a>
+                                                            </li>
+                                                        }
+                                                    </ul>
+
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-2 col-md-2 c-setting__width-box-arrow">
+                                            <div class="c-setting__height-box-arrow ">
+                                                <div class="c-setting__vertical-middle-arrow">
+                                                    @* Btn Arrow To Right *@
+                                                    <div id="move_right" class="c-setting__mrg-bottom-btn-arrow">
+                                                        <div class="c-btn-circle__box position-c">
+                                                            <div class="c-btn-circle__box-icon">
+                                                                <div class="c-btn-circle__icon">
+                                                                    <i class="fas fa-chevron-right"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    @* Btn Arrow To Left *@
+                                                    <div id="move_left">
+                                                        <div class="c-btn-circle__box position-c">
+                                                            <div class="c-btn-circle__box-icon">
+                                                                <div class="c-btn-circle__icon">
+                                                                    <i class="fas fa-chevron-left"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        @* Set Dashboard *@
+                                        <div class="col-lg-5 col-md-5 c-setting__width-box-list">
+                                            <div class="c-setting__box-list">
+                                                <div class="c-setting__header-list">
+                                                    Dashboard Set
+                                                </div>
+
+                                                <div id="setDashboard" class="c-setting__scroll-box-list">
+                                                    @*<ul id="list-dashboard-set" class="c-setting__list-set">
+                                                            @* must be empty
+                                                        </ul>*@
+
+                                                    <ul id="list-dashboard-set" class="c-setting__list-set">
+                                                        @foreach (var item in Model.ListDashboardSet)
+                                                        {
+                                                            <li data-value="@item.Id">
+                                                                @item.Name
+                                                                <a href="~/Images/shimano-white-logo.png" class="preview pull-right"><i class="fas fa-eye"></i></a>
+                                                            </li>
+                                                        }
+                                                    </ul>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <script>
+                                        function SaveData() {
+                                            var list = document.getElementById('list-dashboard-set');
+                                            var list_items = list.getElementsByTagName("li");
+                                            var listApp = document.getElementById('list-application-set');
+                                            var listApp_items = listApp.getElementsByTagName("li");
+                                            var StrData = "";
+
+                                            try {
+                                                for (var i = 0; i <= list_items.length ; ++i) {
+                                                    StrData = list_items[i].getAttribute('data-value') + "," + StrData
+                                                }
+                                            }
+                                            catch (err) { }
+
+                                            try {
+                                                for (var i = 0; i <= listApp_items.length ; ++i) {
+                                                    StrData = listApp_items[i].getAttribute('data-value') + "," + StrData
+                                                }
+                                            }
+                                            catch (err) { }
+
+
+                                            //alert(StrData);
+
+                                            $.ajax({
+                                                url: "@Url.Action("SaveData", "Main")",
+                                                dataType: "json",
+                                                data: { StrData: StrData },
+                                                success: function (response) {
+                                                if (response.isSuccess) {
+                                                    alert(response.message);
+                                                    window.location.href = "/Main/Index";
+                                                } else {
+                                                    // DoSomethingElse()
+                                                    alert(response.message);
+                                                }
+                                            },
+                                            error: function (response) {
+                                                alert("error!");  //
+                                            }
+                                        });
+                                        }
+                                    </script>
+
+
+                                    @* Submit & Cancel *@
+                                    <div class="row c-setting__mrg-top-box-confirm">
+                                        <div class="col-lg-10 col-md-10 width-space-area-btn-setting"></div>
+                                        <div class="col-lg-1 col-md-1 width-btn-cancel-setting">
+                                            <div data-dismiss="modal" class="c-btn-circle__box-cancel c-setting__float-btn-confirm">
+                                                <div class="c-btn-circle__box-icon">
+                                                    <div class="c-btn-circle__icon">
+                                                        <i class="fas fa-times"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-1 col-md-1 width-btn-confirm-setting">
+                                            <div data-dismiss="modal" class="c-btn-circle__box c-setting__float-btn-confirm">
+                                                <div class="c-btn-circle__box-icon">
+                                                    <div class="c-btn-circle__icon">
+                                                        <span onclick="SaveData()">
+                                                            <i class="fas fa-check"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @* =========================
+                                    Content Application
+                                    ==========================*@
+                                <div class="tab-pane" id="Application">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12">
+                                            <div class="c-setting--title-pillar">
+                                                @*OMS <span class="c-setting--subtitle-pillar">Operations</span>*@
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row margin-t-1-vw">
+                                        @* Display Application *@
+                                        <div class="col-lg-5 col-md-5 c-setting__width-box-list">
+                                            <div class="c-setting__box-list">
+                                                <div class="c-setting__header-list">
+                                                    Displayed Application
+                                                </div>
+                                                <div class="c-setting__scroll-box-list">
+                                                    <div class="c-setting--mrg-top-input">
+                                                        <div class="c-setting__box-icon-input">
+                                                            <img src="~/Images/ic-search.png" class="c-setting--icon-size-input c-setting__position-icon-input c-setting__right-icon-input" />
+                                                        </div>
+                                                        <input type="text" id="inputApplication" onkeyup="searchApplication()" placeholder="Search Application..." class="c-setting__input c-setting__position-right-input" />
+                                                    </div>
+                                                    <ul id="list-displayed-application" class="c-setting__list-displayed">
+                                                        @foreach (var item in Model.ListApplication)
+                                                        {
+                                                            <li data-value="@item.Id">
+                                                                @item.Name
+                                                                <a href="~/Images/shimano-white-logo.png" class="preview pull-right"><i class="fas fa-eye"></i></a>
+                                                            </li>
+                                                        }
+                                                    </ul>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-2 col-md-2 c-setting__width-box-arrow">
+                                            <div class="c-setting__height-box-arrow ">
+                                                <div class="c-setting__vertical-middle-arrow">
+
+                                                    @* Btn Arrow To Right *@
+                                                    <div id="move_right_two" class="c-setting__mrg-bottom-btn-arrow">
+                                                        <div class="c-btn-circle__box position-c">
+                                                            <div class="c-btn-circle__box-icon">
+                                                                <div class="c-btn-circle__icon">
+                                                                    <i class="fas fa-chevron-right"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    @* Btn Arrow To Left *@
+                                                    <div id="move_left_two">
+                                                        <div class="c-btn-circle__box position-c">
+                                                            <div class="c-btn-circle__box-icon">
+                                                                <div class="c-btn-circle__icon">
+                                                                    <i class="fas fa-chevron-left"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        @* Set Dashboard *@
+                                        <div class="col-lg-5 col-md-5 c-setting__width-box-list">
+                                            <div class="c-setting__box-list">
+                                                <div class="c-setting__header-list">
+                                                    Application Set
+                                                </div>
+
+                                                <div id="setApplication" class="c-setting__scroll-box-list">
+                                                    @*<ul id="list-application-set" class="c-setting__list-set">
+                                                            @* must be empty
+                                                        </ul>*@
+
+                                                    <ul id="list-application-set" class="c-setting__list-set">
+                                                        @foreach (var item in Model.ListApplicationSet)
+                                                        {
+                                                            <li data-value="@item.Id">
+                                                                @item.Name
+                                                                <a href="~/Images/shimano-white-logo.png" class="preview pull-right"><i class="fas fa-eye"></i></a>
+                                                            </li>
+                                                        }
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    @* Submit & Cancel *@
+                                    <div class="row c-setting__mrg-top-box-confirm">
+                                        <div class="col-lg-10 col-md-10 width-space-area-btn-setting"></div>
+                                        <div class="col-lg-1 col-md-1 width-btn-cancel-setting">
+                                            <div data-dismiss="modal" class="c-btn-circle__box-cancel c-setting__float-btn-confirm">
+                                                <div class="c-btn-circle__box-icon">
+                                                    <div class="c-btn-circle__icon">
+                                                        <i class="fas fa-times"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-1 col-md-1 width-btn-confirm-setting">
+                                            <div data-dismiss="modal" class="c-btn-circle__box c-setting__float-btn-confirm">
+                                                <div class="c-btn-circle__box-icon">
+                                                    <div class="c-btn-circle__icon">
+                                                        <span onclick="SaveData()">
+                                                            <i class="fas fa-check"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery.min.js" type="text/javascript"></script>
+@* RMVS *@
+<script>
+    function funcRVMS() {
+        $("#ModalOMS").modal('hide');
+        $("#ModalQMS").modal({
+            backdrop: "static", //remove ability to close modal with click
+            keyboard: false, //remove option to close with keyboard
+            show: true //Display loader!
+        });
+    }
+    
+</script>
